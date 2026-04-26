@@ -82,28 +82,34 @@ function StepContent({
   index: number
   scrollProgress: ReturnType<typeof useScroll>['scrollYProgress']
 }) {
-  const stepStart = index / steps.length
-  const stepEnd = (index + 1) / steps.length
+  const total = steps.length
+  const stepStart = index / total
+  const stepEnd = (index + 1) / total
   
-  // Ensure offsets are monotonically non-decreasing
-  const fadeInStart = Math.max(0, stepStart - 0.1)
-  const fadeOutEnd = Math.min(1, stepEnd)
+  // For first step: start visible, fade out at end
+  // For middle steps: fade in at start, fade out at end  
+  // For last step: fade in, stay visible
+  const isFirst = index === 0
+  const isLast = index === total - 1
 
   const opacity = useTransform(
     scrollProgress,
-    [
-      fadeInStart,
-      stepStart,
-      Math.max(stepStart + 0.01, stepEnd - 0.1),
-      fadeOutEnd,
-    ],
-    [index === 0 ? 1 : 0, 1, 1, index === steps.length - 1 ? 1 : 0]
+    isFirst 
+      ? [0, stepEnd - 0.05, stepEnd]
+      : isLast
+        ? [stepStart - 0.05, stepStart, 1]
+        : [stepStart - 0.05, stepStart, stepEnd - 0.05, stepEnd],
+    isFirst
+      ? [1, 1, 0]
+      : isLast
+        ? [0, 1, 1]
+        : [0, 1, 1, 0]
   )
 
   const y = useTransform(
     scrollProgress,
-    [fadeInStart, Math.max(fadeInStart + 0.01, stepStart)],
-    [index === 0 ? 0 : 50, 0]
+    isFirst ? [0, 0.01] : [Math.max(0, stepStart - 0.05), stepStart],
+    isFirst ? [0, 0] : [30, 0]
   )
 
   return (
@@ -144,28 +150,31 @@ function StepIllustration({
   index: number
   scrollProgress: ReturnType<typeof useScroll>['scrollYProgress']
 }) {
-  const stepStart = index / steps.length
-  const stepEnd = (index + 1) / steps.length
+  const total = steps.length
+  const stepStart = index / total
+  const stepEnd = (index + 1) / total
   
-  // Ensure offsets are monotonically non-decreasing
-  const fadeInStart = Math.max(0, stepStart - 0.1)
-  const fadeOutEnd = Math.min(1, stepEnd)
+  const isFirst = index === 0
+  const isLast = index === total - 1
 
   const opacity = useTransform(
     scrollProgress,
-    [
-      fadeInStart,
-      stepStart,
-      Math.max(stepStart + 0.01, stepEnd - 0.1),
-      fadeOutEnd,
-    ],
-    [index === 0 ? 1 : 0, 1, 1, index === steps.length - 1 ? 1 : 0]
+    isFirst 
+      ? [0, stepEnd - 0.05, stepEnd]
+      : isLast
+        ? [stepStart - 0.05, stepStart, 1]
+        : [stepStart - 0.05, stepStart, stepEnd - 0.05, stepEnd],
+    isFirst
+      ? [1, 1, 0]
+      : isLast
+        ? [0, 1, 1]
+        : [0, 1, 1, 0]
   )
 
   const scale = useTransform(
     scrollProgress,
-    [fadeInStart, Math.max(fadeInStart + 0.01, stepStart)],
-    [index === 0 ? 1 : 0.9, 1]
+    isFirst ? [0, 0.01] : [Math.max(0, stepStart - 0.05), stepStart],
+    isFirst ? [1, 1] : [0.95, 1]
   )
 
   return (
