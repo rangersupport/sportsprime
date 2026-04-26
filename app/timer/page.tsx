@@ -1,8 +1,5 @@
 "use client"
 
-export const dynamic = 'force-dynamic'
-export const runtime = 'nodejs'
-
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Play, Pause, RotateCcw, Volume2, VolumeX, Maximize2, Settings } from "lucide-react"
