@@ -1,8 +1,5 @@
 "use client"
 
-export const dynamic = 'force-dynamic'
-export const runtime = 'nodejs'
-
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"

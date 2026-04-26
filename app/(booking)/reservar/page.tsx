@@ -1,8 +1,5 @@
 'use client'
 
-export const dynamic = 'force-dynamic'
-export const runtime = 'nodejs'
-
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn, formatCOP } from '@/lib/utils'
