@@ -1,0 +1,32 @@
+# Netlify Configuration for Cucuta Bilingual Brochure
+
+[build]
+  publish = "."
+
+# Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache static assets
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Disposition = "attachment"
+
+# Redirect www to non-www (optional)
+[[redirects]]
+  from = "https://www.example.com/*"
+  to = "https://example.com/:splat"
+  status = 301
+  force = true
