@@ -67,9 +67,9 @@ export function StatusDot({
   size = 'md',
   className,
 }: StatusDotProps) {
-  const config = statusConfig[status] || {
+  const config = statusConfig[status] ?? {
     color: 'bg-gray-400',
-    label: status,
+    label: status ?? 'Desconocido',
     pulse: false,
   }
 

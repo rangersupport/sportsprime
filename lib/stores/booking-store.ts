@@ -3,6 +3,23 @@ import { persist } from 'zustand/middleware'
 import type { SportType, Court, PaymentMethod } from '@/lib/types'
 import { IVA_RATE } from '@/lib/constants'
 
+export interface BookingData {
+  sport: SportType | null
+  courtId: string | null
+  courtName: string | null
+  date: string | null
+  timeSlot: string | null
+  duration: number
+  numPlayers: number
+  playerName: string
+  playerPhone: string
+  playerEmail: string
+  notes: string
+  subtotal: number
+  iva: number
+  total: number
+}
+
 interface BookingState {
   // Step 1: Sport & Court
   sport: SportType | null
@@ -69,7 +86,7 @@ export const useBookingStore = create<BookingState>()(
       setSport: (sport) => set({ sport }),
       
       setCourt: (court) => {
-        set({ court, sport: court.sport_type })
+        set({ court, sport: court?.sport_type ?? null })
         get().calculateTotal()
       },
       
@@ -89,7 +106,7 @@ export const useBookingStore = create<BookingState>()(
           playerName: name,
           playerPhone: phone,
           playerEmail: email,
-          notes: notes || '',
+          notes: notes ?? '',
         })
       },
       
@@ -108,7 +125,7 @@ export const useBookingStore = create<BookingState>()(
         }
         
         const hours = duration / 60
-        const subtotal = court.price_per_hour * hours
+        const subtotal = (court?.price_per_hour ?? 0) * hours
         const iva = Math.round(subtotal * IVA_RATE)
         const total = subtotal + iva
         
@@ -134,3 +151,23 @@ export const useBookingStore = create<BookingState>()(
     }
   )
 )
+
+// Selector to get booking data for confirmation page
+export function selectBookingData(state: BookingState): BookingData {
+  return {
+    sport: state.sport,
+    courtId: state.court?.id ?? null,
+    courtName: state.court?.name ?? null,
+    date: state.date,
+    timeSlot: state.startTime,
+    duration: state.duration,
+    numPlayers: state.numPlayers,
+    playerName: state.playerName,
+    playerPhone: state.playerPhone,
+    playerEmail: state.playerEmail,
+    notes: state.notes,
+    subtotal: state.subtotal,
+    iva: state.iva,
+    total: state.total,
+  }
+}
