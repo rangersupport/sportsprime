@@ -13,18 +13,25 @@ import { formatCOP, formatDateCO, formatTime, generateBookingRef } from "@/lib/u
 import { PoweredByBadge } from "@/components/shared/powered-by-badge"
 import { SportIcon } from "@/components/shared/sport-icon"
 import { toast } from "sonner"
+import { Spinner } from "@/components/ui/spinner"
 
 export default function ConfirmationPage() {
   const router = useRouter()
   const { booking, reset } = useBookingStore()
   const [bookingRef] = useState(() => generateBookingRef())
   const [copied, setCopied] = useState(false)
+  const [isHydrated, setIsHydrated] = useState(false)
+
+  // Wait for hydration before checking store values
+  useEffect(() => {
+    setIsHydrated(true)
+  }, [])
 
   useEffect(() => {
-    if (!booking.courtId || !booking.date || !booking.timeSlot) {
+    if (isHydrated && (!booking?.courtId || !booking?.date || !booking?.timeSlot)) {
       router.push("/reservar")
     }
-  }, [booking, router])
+  }, [booking, router, isHydrated])
 
   const handleCopyRef = () => {
     navigator.clipboard.writeText(bookingRef)
@@ -34,9 +41,10 @@ export default function ConfirmationPage() {
   }
 
   const handleShare = async () => {
+    if (!booking?.date || !booking?.timeSlot) return
     const shareData = {
       title: "Mi Reserva SportsPrime",
-      text: `Reserva confirmada: ${booking.sport} el ${formatDateCO(booking.date!)} a las ${formatTime(booking.timeSlot!)}`,
+      text: `Reserva confirmada: ${booking.sport} el ${formatDateCO(booking.date)} a las ${formatTime(booking.timeSlot)}`,
       url: window.location.href,
     }
     
@@ -52,8 +60,9 @@ export default function ConfirmationPage() {
   }
 
   const handleWhatsApp = () => {
+    if (!booking?.date || !booking?.timeSlot) return
     const message = encodeURIComponent(
-      `¡Reserva confirmada en SportsPrime!\n\nDeporte: ${booking.sport}\nFecha: ${formatDateCO(booking.date!)}\nHora: ${formatTime(booking.timeSlot!)}\nCódigo: ${bookingRef}\n\nNos vemos en la cancha! 🎾`
+      `Reserva confirmada en SportsPrime!\n\nDeporte: ${booking.sport}\nFecha: ${formatDateCO(booking.date)}\nHora: ${formatTime(booking.timeSlot)}\nCodigo: ${bookingRef}\n\nNos vemos en la cancha!`
     )
     window.open(`https://wa.me/?text=${message}`, "_blank")
   }
@@ -63,7 +72,14 @@ export default function ConfirmationPage() {
     router.push("/reservar")
   }
 
-  if (!booking.courtId) return null
+  // Show loading state during SSR and hydration
+  if (!isHydrated || !booking?.courtId) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-cream">
+        <Spinner className="h-8 w-8 text-forest" />
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-cream">

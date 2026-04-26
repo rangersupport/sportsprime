@@ -1,12 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { cn, formatCOP } from '@/lib/utils'
 import { ProgressBar } from '@/components/booking/progress-bar'
 import { useBookingStore } from '@/lib/stores/booking-store'
-import { redirect } from 'next/navigation'
+import { Spinner } from '@/components/ui/spinner'
 import type { PaymentMethod } from '@/lib/types'
 
 const paymentMethods: { id: PaymentMethod; name: string; icon: JSX.Element }[] = [
@@ -79,10 +79,25 @@ export default function ReservarStep4() {
     setPaymentMethod,
     setPromoCode 
   } = useBookingStore()
+  const [isHydrated, setIsHydrated] = useState(false)
 
-  // Redirect if missing previous steps
-  if (!court || !date || !startTime || !playerName) {
-    redirect('/reservar')
+  useEffect(() => {
+    setIsHydrated(true)
+  }, [])
+
+  useEffect(() => {
+    if (isHydrated && (!court || !date || !startTime || !playerName)) {
+      router.push('/reservar')
+    }
+  }, [isHydrated, court, date, startTime, playerName, router])
+
+  // Show loading during SSR/hydration
+  if (!isHydrated || !court || !date || !startTime || !playerName) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <Spinner className="h-8 w-8 text-forest" />
+      </div>
+    )
   }
 
   const [localPromo, setLocalPromo] = useState(promoCode)

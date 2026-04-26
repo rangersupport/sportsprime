@@ -1,17 +1,19 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { ProgressBar } from '@/components/booking/progress-bar'
 import { StickyPriceSummary } from '@/components/booking/sticky-price-summary'
 import { FloatingLabelInput } from '@/components/booking/floating-label-input'
 import { useBookingStore } from '@/lib/stores/booking-store'
-import { redirect } from 'next/navigation'
+import { Spinner } from '@/components/ui/spinner'
 
 const playerOptions = [2, 3, 4, 5, 6]
 
 export default function ReservarStep3() {
+  const router = useRouter()
   const { 
     court, 
     date, 
@@ -24,10 +26,25 @@ export default function ReservarStep3() {
     setNumPlayers,
     setPlayerInfo 
   } = useBookingStore()
+  const [isHydrated, setIsHydrated] = useState(false)
 
-  // Redirect if missing previous steps
-  if (!court || !date || !startTime) {
-    redirect('/reservar')
+  useEffect(() => {
+    setIsHydrated(true)
+  }, [])
+
+  useEffect(() => {
+    if (isHydrated && (!court || !date || !startTime)) {
+      router.push('/reservar')
+    }
+  }, [isHydrated, court, date, startTime, router])
+
+  // Show loading during SSR/hydration
+  if (!isHydrated || !court || !date || !startTime) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <Spinner className="h-8 w-8 text-forest" />
+      </div>
+    )
   }
 
   const [localName, setLocalName] = useState(playerName)

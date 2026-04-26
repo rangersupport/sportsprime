@@ -1,12 +1,13 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { ProgressBar } from '@/components/booking/progress-bar'
 import { StickyPriceSummary } from '@/components/booking/sticky-price-summary'
 import { useBookingStore } from '@/lib/stores/booking-store'
-import { redirect } from 'next/navigation'
+import { Spinner } from '@/components/ui/spinner'
 
 const DURATIONS = [30, 60, 90, 120, 150, 180]
 
@@ -34,15 +35,31 @@ function generateTimeSlots() {
   return slots
 }
 
-const weekDays = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']
+const weekDays = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
 const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
 
 export default function ReservarStep2() {
+  const router = useRouter()
   const { court, date, startTime, duration, setDate, setStartTime, setDuration } = useBookingStore()
+  const [isHydrated, setIsHydrated] = useState(false)
   
-  // Redirect if no court selected
-  if (!court) {
-    redirect('/reservar')
+  useEffect(() => {
+    setIsHydrated(true)
+  }, [])
+
+  useEffect(() => {
+    if (isHydrated && !court) {
+      router.push('/reservar')
+    }
+  }, [isHydrated, court, router])
+
+  // Show loading during SSR/hydration
+  if (!isHydrated || !court) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <Spinner className="h-8 w-8 text-forest" />
+      </div>
+    )
   }
 
   const days = useMemo(() => generateDays(), [])
