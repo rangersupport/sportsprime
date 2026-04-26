@@ -48,11 +48,10 @@ export function HeroCinematic() {
       <div className="absolute inset-0">
         <Image
           src="/images/hero-padel-court.jpg"
-          alt="Club de pádel al atardecer"
+          alt="Club de padel al atardecer"
           fill
           className="object-cover"
           priority
-          quality={90}
         />
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-sp-green/90" 

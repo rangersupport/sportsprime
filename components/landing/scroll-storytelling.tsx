@@ -84,22 +84,26 @@ function StepContent({
 }) {
   const stepStart = index / steps.length
   const stepEnd = (index + 1) / steps.length
+  
+  // Ensure offsets are monotonically non-decreasing
+  const fadeInStart = Math.max(0, stepStart - 0.1)
+  const fadeOutEnd = Math.min(1, stepEnd)
 
   const opacity = useTransform(
     scrollProgress,
     [
-      stepStart - 0.1,
+      fadeInStart,
       stepStart,
-      stepEnd - 0.1,
-      stepEnd,
+      Math.max(stepStart + 0.01, stepEnd - 0.1),
+      fadeOutEnd,
     ],
-    [0, 1, 1, index === steps.length - 1 ? 1 : 0]
+    [index === 0 ? 1 : 0, 1, 1, index === steps.length - 1 ? 1 : 0]
   )
 
   const y = useTransform(
     scrollProgress,
-    [stepStart - 0.1, stepStart],
-    [50, 0]
+    [fadeInStart, Math.max(fadeInStart + 0.01, stepStart)],
+    [index === 0 ? 0 : 50, 0]
   )
 
   return (
@@ -142,22 +146,26 @@ function StepIllustration({
 }) {
   const stepStart = index / steps.length
   const stepEnd = (index + 1) / steps.length
+  
+  // Ensure offsets are monotonically non-decreasing
+  const fadeInStart = Math.max(0, stepStart - 0.1)
+  const fadeOutEnd = Math.min(1, stepEnd)
 
   const opacity = useTransform(
     scrollProgress,
     [
-      stepStart - 0.1,
+      fadeInStart,
       stepStart,
-      stepEnd - 0.1,
-      stepEnd,
+      Math.max(stepStart + 0.01, stepEnd - 0.1),
+      fadeOutEnd,
     ],
-    [0, 1, 1, index === steps.length - 1 ? 1 : 0]
+    [index === 0 ? 1 : 0, 1, 1, index === steps.length - 1 ? 1 : 0]
   )
 
   const scale = useTransform(
     scrollProgress,
-    [stepStart - 0.1, stepStart],
-    [0.9, 1]
+    [fadeInStart, Math.max(fadeInStart + 0.01, stepStart)],
+    [index === 0 ? 1 : 0.9, 1]
   )
 
   return (
