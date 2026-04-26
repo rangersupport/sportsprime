@@ -1,6 +1,7 @@
 "use client"
 
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
@@ -10,7 +11,7 @@ import { Check, Calendar, Clock, MapPin, Download, Share2, Copy, MessageCircle }
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { useBookingStore } from "@/lib/stores/booking-store"
+import { useBookingStore, selectBookingData } from "@/lib/stores/booking-store"
 import { formatCOP, formatDateCO, formatTime, generateBookingRef } from "@/lib/utils"
 import { PoweredByBadge } from "@/components/shared/powered-by-badge"
 import { SportIcon } from "@/components/shared/sport-icon"
@@ -19,7 +20,8 @@ import { Spinner } from "@/components/ui/spinner"
 
 export default function ConfirmationPage() {
   const router = useRouter()
-  const { booking, reset } = useBookingStore()
+  const reset = useBookingStore((state) => state.reset)
+  const booking = useBookingStore(selectBookingData)
   const [bookingRef] = useState(() => generateBookingRef())
   const [copied, setCopied] = useState(false)
   const [isHydrated, setIsHydrated] = useState(false)

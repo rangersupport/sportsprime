@@ -1,6 +1,7 @@
 "use client"
 
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 
 import { useState } from "react"
 import { 
@@ -159,18 +160,18 @@ export default function AdminDashboard() {
                 key={court.id}
                 className={cn(
                   "flex items-center justify-between rounded-lg border p-3",
-                  court.status === "available" && "border-emerald-200 bg-emerald-50",
-                  court.status === "occupied" && "border-gold/30 bg-gold/5",
-                  court.status === "maintenance" && "border-red-200 bg-red-50"
+                  court?.status === "available" && "border-emerald-200 bg-emerald-50",
+                  court?.status === "occupied" && "border-gold/30 bg-gold/5",
+                  court?.status === "maintenance" && "border-red-200 bg-red-50"
                 )}
               >
                 <div className="flex items-center gap-3">
                   <SportIcon sport={court.sport} className="h-5 w-5 text-forest" />
                   <div>
                     <p className="font-medium text-sm">{court.name}</p>
-                    {court.player ? (
-                      <p className="text-xs text-muted-foreground">{court.player}</p>
-                    ) : court.status === "maintenance" ? (
+                    {court?.player ? (
+                      <p className="text-xs text-muted-foreground">{court?.player}</p>
+                    ) : court?.status === "maintenance" ? (
                       <p className="text-xs text-red-600">En mantenimiento</p>
                     ) : (
                       <p className="text-xs text-emerald-600">Disponible</p>
@@ -188,7 +189,7 @@ export default function AdminDashboard() {
                     />
                   </div>
                 )}
-                {court.status === "available" && (
+                {court?.status === "available" && (
                   <Button size="sm" variant="outline" className="text-xs">
                     Reservar
                   </Button>

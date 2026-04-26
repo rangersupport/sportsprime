@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="es" id="html-root">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cucuta: Seguridad Inteligente e Infraestructura Resiliente</title>
+  <meta name="description" content="Propuesta estrategica para la transformacion municipal de Cucuta 2024-2027. Robotica de grado militar e ingenieria civil de alto rendimiento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <style>
+    /* ══════════════════════════════════════════
+       DESIGN TOKENS
+    ══════════════════════════════════════════ */
+    :root {
+      --navy: #0D1B2A;
+      --navy-mid: #1A2F46;
+      --navy-light: #243B55;
+      --slate: #3D4A5C;
+      --slate-mid: #5E6E82;
+      --slate-light: #8A9BB0;
+      --white: #F7F8FA;
+      --off-white: #ECEEF2;
+      --rule: #D4D9E2;
+      --green-dark: #1B5E20;
+      --green-mid: #2E7D32;
+      --green-base: #388E3C;
+      --green-accent: #4CAF50;
+      --orange-dark: #BF360C;
+      --orange-mid: #D84315;
+      --orange-base: #E64A19;
+      --orange-accent: #FF7043;
+      --radius: 4px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.12);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.18);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.25);
+    }
+
+    /* ══════════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--slate);
+      background: var(--navy-mid);
+      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* ══════════════════════════════════════════
+       LANGUAGE TOGGLE SYSTEM
+    ══════════════════════════════════════════ */
+    .es { display: block; }
+    .en { display: none; }
+    .es-i { display: inline; }
+    .en-i { display: none; }
+
+    body.lang-en .es { display: none !important; }
+    body.lang-en .en { display: block !important; }
+    body.lang-en .es-i { display: none !important; }
+    body.lang-en .en-i { display: inline !important; }
+
+    /* ══════════════════════════════════════════
+       FIXED CONTROLS
+    ══════════════════════════════════════════ */
+    .fixed-controls {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .lang-btn {
+      padding: 10px 18px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--navy-mid);
+      color: rgba(255,255,255,0.4);
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover:not(.active) {
+      background: var(--navy-light);
+      color: rgba(255,255,255,0.7);
+    }
+
+    .lang-btn.active {
+      background: var(--green-mid);
+      color: #fff;
+    }
+
+    .pdf-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--navy-mid);
+      color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(76,175,80,0.4);
+      border-radius: var(--radius);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.2s ease;
+    }
+
+    .pdf-btn:hover {
+      background: var(--green-mid);
+      border-color: var(--green-accent);
+      color: #fff;
+    }
+
+    .pdf-btn svg {
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════════
+       PAGE CONTAINER
+    ══════════════════════════════════════════ */
+    .page {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 32px;
+      background: var(--white);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .page:first-of-type {
+      margin-top: 80px;
+    }
+
+    /* ══════════════════════════════════════════
+       COVER PAGE
+    ══════════════════════════════════════════ */
+    .cover {
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cover-topbar {
+      height: 6px;
+      background: var(--green-accent);
+      flex-shrink: 0;
+    }
+
+    .cover-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 24px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cover-logos {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .logo-name .co { color: var(--orange-accent); }
+    .logo-name .us { color: var(--green-accent); }
+
+    .logo-location {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      color: var(--slate-light);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .logo-separator {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .cover-badge {
+      text-align: right;
+      font-size: 11px;
+      color: var(--slate-light);
+      line-height: 1.7;
+    }
+
+    .cover-badge strong {
+      display: block;
+      color: var(--green-accent);
+      font-weight: 600;
+    }
+
+    .cover-body {
+      flex: 1;
+      position: relative;
+      padding: 48px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(76,175,80,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(76,175,80,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .cover-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--green-accent);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 16px;
+    }
+
+    .cover-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--green-accent);
+    }
+
+    .cover-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(32px, 7vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .cover-title .highlight {
+      color: var(--green-accent);
+    }
+
+    .cover-byline {
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: var(--slate-light);
+      text-transform: uppercase;
+      margin-top: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .rule-accent {
+      width: 64px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green-mid), var(--green-accent));
+      margin: 24px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mission-card {
+      background: rgba(255,255,255,0.04);
+      border-left: 4px solid var(--green-accent);
+      padding: 20px 24px;
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mission-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--green-accent);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .mission-text {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(247,248,250,0.88);
+      line-height: 1.7;
+    }
+
+    .video-container {
+      position: relative;
+      z-index: 2;
+      margin-top: 24px;
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 16 / 9;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(76,175,80,0.3);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .play-icon {
+      width: 48px;
+      height: 48px;
+      border: 2px solid rgba(76,175,80,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .play-icon::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 16px solid rgba(76,175,80,0.5);
+      margin-left: 4px;
+    }
+
+    .video-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .cover-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 32px;
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0 12px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-value {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(24px, 5vw, 32px);
+      font-weight: 700;
+      color: var(--green-accent);
+    }
+
+    .stat-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: var(--slate-light);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .cover-footer {
+      background: rgba(0,0,0,0.3);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .cover-footer-text {
+      font-size: 11px;
+      color: var(--slate-mid);
+    }
+
+    .cover-footer-text strong {
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+    }
+
+    .cover-footer-badge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--green-accent);
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════════════
+       PAGE HEADER
+    ══════════════════════════════════════════ */
+    .page-topbar {
+      height: 5px;
+      flex-shrink: 0;
+    }
+
+    .page-topbar.green {
+      background: linear-gradient(90deg, var(--navy) 60%, var(--green-accent) 60%);
+    }
+
+    .page-topbar.orange {
+      background: linear-gradient(90deg, var(--navy) 60%, var(--orange-accent) 60%);
+    }
+
+    .page-topbar.split {
+      background: linear-gradient(90deg, var(--navy) 50%, var(--orange-accent) 50%);
+    }
+
+    .page-header {
+      background: var(--navy);
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .page-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+    }
+
+    .page-brand b {
+      color: var(--green-accent);
+      font-weight: 700;
+    }
+
+    .page-brand b.orange {
+      color: var(--orange-accent);
+    }
+
+    .page-folio {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════════════
+       PROPOSAL HERO
+    ══════════════════════════════════════════ */
+    .proposal-hero {
+      position: relative;
+      min-height: 280px;
+      overflow: hidden;
+    }
+
+    .proposal-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--navy);
+    }
+
+    .proposal-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+    }
+
+    .proposal-hero-fade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg, rgba(13,27,42,0.95) 0%, rgba(13,27,42,0.5) 100%);
+      z-index: 1;
+    }
+
+    .proposal-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 32px;
+    }
+
+    .proposal-tag {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #fff;
+      text-transform: uppercase;
+      background: var(--green-mid);
+      padding: 6px 14px;
+      margin-bottom: 12px;
+    }
+
+    .proposal-tag.orange {
+      background: var(--orange-mid);
+    }
+
+    .proposal-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(28px, 6vw, 42px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .proposal-title .light {
+      font-weight: 300;
+    }
+
+    .proposal-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      margin-top: 12px;
+      line-height: 1.65;
+      max-width: 540px;
+    }
+
+    /* ══════════════════════════════════════════
+       METRICS STRIP
+    ══════════════════════════════════════════ */
+    .metrics-strip {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 32px;
+    }
+
+    .metrics-strip.green {
+      background: linear-gradient(90deg, var(--green-dark), var(--green-base));
+    }
+
+    .metrics-strip.orange {
+      background: linear-gradient(90deg, var(--orange-dark), var(--orange-base));
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 14px 24px;
+      border-right: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .metric-item:last-of-type {
+      border-right: none;
+    }
+
+    .metric-value {
+      font-family: 'Oswald', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .metric-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.8);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .metric-callout {
+      flex: 1;
+      min-width: 200px;
+      padding: 14px 0 14px 24px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.92);
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    .metric-callout b {
+      font-weight: 600;
+    }
+
+    /* ══════════════════════════════════════════
+       TWO COLUMN LAYOUT
+    ══════════════════════════════════════════ */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .col-left {
+      padding: 28px 32px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .col-right {
+      padding: 28px 32px;
+      background: var(--off-white);
+    }
+
+    .section-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .section-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.3;
+    }
+
+    .section-heading.orange {
+      color: var(--orange-base);
+    }
+
+    .tech-row {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 18px;
+      align-items: flex-start;
+    }
+
+    .tech-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green-accent);
+      background: var(--navy);
+      min-width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .tech-num.orange {
+      color: var(--orange-accent);
+    }
+
+    .tech-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--navy);
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+
+    .tech-body {
+      font-size: 13px;
+      color: var(--slate);
+      margin-top: 6px;
+      line-height: 1.65;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    .spec-table tr {
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .spec-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .spec-table td {
+      padding: 8px 4px;
+      vertical-align: top;
+      line-height: 1.5;
+      font-size: 13px;
+    }
+
+    .spec-table td:first-child {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--slate-mid);
+      text-transform: uppercase;
+      width: 38%;
+      padding-right: 12px;
+    }
+
+    .spec-table td:last-child {
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .value-box {
+      border-left: 4px solid var(--green-mid);
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      background: rgba(13,27,42,0.04);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .value-box.orange {
+      border-left-color: var(--orange-mid);
+      background: rgba(191,54,12,0.04);
+    }
+
+    .value-box-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: var(--navy);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .value-box-text {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+
+    .align-note {
+      border-left: 4px solid var(--green-accent);
+      padding: 12px 14px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: #EBF5EB;
+      margin-top: 16px;
+    }
+
+    .align-note.orange {
+      border-left-color: var(--orange-accent);
+      background: #FEF3EE;
+    }
+
+    .align-note-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+
+    .align-note.orange .align-note-title {
+      color: var(--orange-dark);
+    }
+
+    .align-note-text {
+      font-size: 12px;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════════
+       PAGE FOOTER
+    ══════════════════════════════════════════ */
+    .page-footer {
+      background: var(--navy);
+      padding: 12px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .page-footer-links {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      color: var(--slate-light);
+      text-transform: uppercase;
+    }
+
+    .page-footer-links a {
+      color: var(--orange-accent);
+      transition: opacity 0.2s;
+    }
+
+    .page-footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .page-footer-links a.green {
+      color: var(--green-accent);
+    }
+
+    .page-footer-num {
+      font-size: 9px;
+      color: var(--slate-mid);
+    }
+
+    /* ══════════════════════════════════════════
+       BACK COVER
+    ══════════════════════════════════════════ */
+    .back-hero {
+      background: var(--navy-mid);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .back-hero::before,
+    .back-hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(76,175,80,0.12);
+    }
+
+    .back-hero::before {
+      right: -60px;
+      top: -60px;
+      width: 320px;
+      height: 320px;
+    }
+
+    .back-hero::after {
+      right: -20px;
+      top: -20px;
+      width: 200px;
+      height: 200px;
+      border-color: rgba(76,175,80,0.18);
+    }
+
+    .back-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--green-accent);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .back-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(24px, 5vw, 38px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-title .highlight {
+      color: var(--green-accent);
+    }
+
+    .back-subtitle {
+      font-size: 13px;
+      color: var(--slate-light);
+      font-weight: 300;
+      margin-top: 10px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cap-row {
+      border-left: 4px solid var(--green-mid);
+      padding: 0 0 0 14px;
+      margin-bottom: 18px;
+    }
+
+    .cap-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--navy);
+      text-transform: uppercase;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .cap-text {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+
+    .team-image {
+      width: 100%;
+      height: 90px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--navy-light);
+      border: 1px dashed rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .team-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-image-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .why-box {
+      background: #EBF5EB;
+      border: 1px solid #C8E6C9;
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-top: 14px;
+    }
+
+    .why-box-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+
+    .why-box-text {
+      font-size: 13px;
+      color: #37474F;
+      line-height: 1.65;
+    }
+
+    .partner-card {
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin-bottom: 12px;
+    }
+
+    .partner-bar {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+    }
+
+    .partner-bar.co {
+      color: var(--orange-accent);
+      border-bottom: 1px solid rgba(255,119,67,0.25);
+    }
+
+    .partner-bar.us {
+      color: var(--green-accent);
+      border-bottom: 1px solid rgba(76,175,80,0.25);
+    }
+
+    .partner-role {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .partner-role.co { color: var(--orange-accent); }
+    .partner-role.us { color: var(--green-accent); }
+
+    .partner-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .partner-bio {
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+    }
+
+    .partner-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .partner-tag {
+      background: rgba(255,255,255,0.1);
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+    }
+
+    .partner-url {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      display: block;
+      margin-top: 8px;
+      word-break: break-all;
+    }
+
+    .partner-url.co { color: var(--orange-accent); }
+    .partner-url.us { color: var(--green-accent); }
+
+    .next-box {
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-top: 12px;
+    }
+
+    .next-box-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 6px;
+    }
+
+    .next-box-text {
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+    }
+
+    .next-box-contact {
+      margin-top: 10px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.45);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* ══════════════════════════════════════════
+       CTA STRIP
+    ══════════════════════════════════════════ */
+    .cta-strip {
+      background: var(--green-mid);
+      padding: 20px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta-content {}
+
+    .cta-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(16px, 4vw, 20px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .cta-subtitle {
+      font-size: 12px;
+      color: rgba(255,255,255,0.8);
+      margin-top: 4px;
+      font-weight: 300;
+    }
+
+    .cta-button {
+      background: #fff;
+      color: var(--green-dark);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .cta-button:hover {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE BREAKPOINTS
+    ══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .fixed-controls {
+        top: 12px;
+        right: 12px;
+      }
+
+      .page:first-of-type {
+        margin-top: 70px;
+      }
+
+      .cover-header {
+        flex-direction: column;
+        padding: 20px 24px;
+      }
+
+      .logo-separator {
+        display: none;
+      }
+
+      .cover-badge {
+        text-align: left;
+      }
+
+      .cover-body {
+        padding: 32px 24px;
+      }
+
+      .cover-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 0;
+      }
+
+      .stat-item {
+        padding: 12px 8px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .stat-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .cover-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 24px;
+      }
+
+      .page-header {
+        padding: 12px 24px;
+      }
+
+      .proposal-hero-content {
+        padding: 24px;
+      }
+
+      .metrics-strip {
+        padding: 0 24px;
+      }
+
+      .metric-item {
+        width: 50%;
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+      }
+
+      .metric-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .metric-item:nth-child(3),
+      .metric-item:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .metric-callout {
+        width: 100%;
+        padding: 12px 0 4px;
+        border-top: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .col-left {
+        padding: 24px;
+        border-right: none;
+        border-bottom: 2px solid var(--rule);
+      }
+
+      .col-right {
+        padding: 24px;
+      }
+
+      .page-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 24px;
+      }
+
+      .back-hero {
+        padding: 24px;
+      }
+
+      .back-hero::before,
+      .back-hero::after {
+        display: none;
+      }
+
+      .cta-strip {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px 24px;
+      }
+
+      .cta-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-name {
+        font-size: 15px;
+      }
+
+      .cover-title {
+        font-size: 28px;
+      }
+
+      .proposal-title {
+        font-size: 26px;
+      }
+
+      .back-title {
+        font-size: 22px;
+      }
+
+      .lang-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+
+      .pdf-btn {
+        padding: 10px 16px;
+        font-size: 11px;
+      }
+    }
+
+    /* ══════════════════════════════════════════
+       PRINT STYLES
+    ══════════════════════════════════════════ */
+    @media print {
+      html, body {
+        background: white !important;
+      }
+
+      body {
+        overflow: visible !important;
+      }
+
+      .page {
+        width: 794px !important;
+        max-width: 794px !important;
+        min-height: 1123px !important;
+        box-shadow: none !important;
+        page-break-after: always;
+        margin: 0 !important;
+        overflow: hidden !important;
+      }
+
+      .page:first-of-type {
+        margin-top: 0 !important;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr 1fr !important;
+      }
+
+      .col-left {
+        border-right: 1px solid var(--rule) !important;
+        border-bottom: none !important;
+      }
+
+      .cover-stats {
+        grid-template-columns: repeat(4, 1fr) !important;
+      }
+
+      .stat-item {
+        border-bottom: none !important;
+      }
+
+      .metrics-strip {
+        flex-wrap: nowrap !important;
+      }
+
+      .metric-item {
+        width: auto !important;
+        border-bottom: none !important;
+      }
+
+      .metric-callout {
+        width: auto !important;
+        border-top: none !important;
+        padding-left: 24px !important;
+      }
+
+      .cta-strip {
+        flex-direction: row !important;
+      }
+
+      .cta-button {
+        width: auto !important;
+      }
+
+      .cover-header {
+        flex-direction: row !important;
+      }
+
+      .logo-separator {
+        display: block !important;
+      }
+
+      .cover-badge {
+        text-align: right !important;
+      }
+
+      .page-footer,
+      .cover-footer {
+        flex-direction: row !important;
+      }
+
+      .fixed-controls {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Fixed Controls -->
+<div class="fixed-controls">
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+  <a href="cucuta-proposal.pdf" download="Cucuta-Propuesta-2024.pdf" class="pdf-btn" id="pdf-download">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    <span class="es">Descargar PDF</span>
+    <span class="en">Download PDF</span>
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 1 - COVER
+═══════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-topbar"></div>
+
+  <div class="cover-header">
+    <div class="cover-logos">
+      <div class="logo-block">
+        <div class="logo-name"><span class="co">JUCAMAL</span> INGENIERIA</div>
+        <div class="logo-location">Cucuta, Norte de Santander, Colombia</div>
+      </div>
+      <div class="logo-separator"></div>
+      <div class="logo-block">
+        <div class="logo-name"><span class="us">MILITARY</span> SOLUTIONS SERVICES</div>
+        <div class="logo-location">Cedar Rapids, Iowa, USA</div>
+      </div>
+    </div>
+    <div class="cover-badge">
+      <strong class="es">Propuesta Estrategica - Alcaldia Municipal</strong>
+      <strong class="en">Strategic Proposal - Mayor's Office</strong>
+      <span class="es">San Jose de Cucuta - 2024-2027<br>Documento Confidencial</span>
+      <span class="en">San Jose de Cucuta - 2024-2027<br>Confidential Document</span>
+    </div>
+  </div>
+
+  <div class="cover-body">
+    <div class="grid-overlay"></div>
+
+    <div class="cover-eyebrow">
+      <span class="es">Transformacion Urbana Inteligente</span>
+      <span class="en">Intelligent Urban Transformation</span>
+    </div>
+
+    <div class="cover-title">
+      <span class="es">San Jose de Cucuta:<br><span class="highlight">Seguridad Inteligente</span><br>e Infraestructura Resiliente</span>
+      <span class="en">San Jose de Cucuta:<br><span class="highlight">Intelligent Security</span><br>& Resilient Infrastructure</span>
+    </div>
+
+    <div class="cover-byline">
+      <span class="es">Propuesta Estrategica para la Transformacion Municipal 2024-2027</span>
+      <span class="en">A Strategic Proposal for Municipal Transformation 2024-2027</span>
+    </div>
+
+    <div class="rule-accent"></div>
+
+    <div class="mission-card">
+      <div class="mission-label">
+        <span class="es">Declaracion de Mision</span>
+        <span class="en">Mission Statement</span>
+      </div>
+      <div class="mission-text">
+        <span class="es">"Transformar a Cucuta en lider nacional en gobernanza de ciudad inteligente, integrando robotica de grado militar con ingenieria civil de alto rendimiento."</span>
+        <span class="en">"To transform Cucuta into a national leader in smart city governance by integrating military-grade robotics with high-performance civil engineering."</span>
+      </div>
+    </div>
+
+    <div class="video-container">
+      <video id="cover-video" src="media/video1.mp4" controls poster="media/image1.jpg"></video>
+    </div>
+
+    <div class="cover-stats">
+      <div class="stat-item">
+        <span class="stat-value">2</span>
+        <span class="stat-label es">Propuestas Clave</span>
+        <span class="stat-label en">Core Proposals</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">C5</span>
+        <span class="stat-label es">Centro de Comando</span>
+        <span class="stat-label en">Command Center</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">360</span>
+        <span class="stat-label es">Cobertura Total</span>
+        <span class="stat-label en">Full Coverage</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">0</span>
+        <span class="stat-label es">Exposicion Humana</span>
+        <span class="stat-label en">Human Exposure</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-footer-text">
+      <span class="es">Dirigido a: <strong>Alcalde Jorge Enrique Acevedo Penaloza</strong> - Plan "Cucuta Perseverante, Segura y Productiva"</span>
+      <span class="en">Addressed to: <strong>Mayor Jorge Enrique Acevedo Penaloza</strong> - Development Plan "Cucuta Perseverante, Segura y Productiva"</span>
+    </div>
+    <div class="cover-footer-badge">
+      <span class="es">Confidencial - Estrictamente Privado</span>
+      <span class="en">Confidential - Strictly Private</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 2 - ROBOTIC SENTRY
+═══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-topbar green"></div>
+  <div class="page-header">
+    <div class="page-brand">Cucuta - <b class="es">Seguridad Inteligente</b><b class="en">Intelligent Security</b></div>
+    <div class="page-folio"><span class="es">Propuesta</span><span class="en">Proposal</span> 01/02</div>
+  </div>
+
+  <div class="proposal-hero">
+    <div class="proposal-hero-bg">
+      <img src="media/image1.jpg" alt="Q-UGV Sentry Robot">
+    </div>
+    <div class="proposal-hero-fade"></div>
+    <div class="proposal-hero-content">
+      <div class="proposal-tag es">Propuesta 01 - Seguridad Fronteriza</div>
+      <div class="proposal-tag en">Proposal 01 - Border Security</div>
+      <div class="proposal-title">
+        <span class="es">El Centinela <span class="light">Robotico</span></span>
+        <span class="en">The Robotic <span class="light">Sentry</span></span>
+      </div>
+      <div class="proposal-desc es">Vehiculos terrestres no tripulados cuadrupedos (Q-UGVs) para trochas de alto riesgo, patrullaje urbano y deteccion autonoma de amenazas en tiempo real.</div>
+      <div class="proposal-desc en">Quadrupedal Unmanned Ground Vehicles (Q-UGVs) for high-risk border trochas, urban patrol, and autonomous real-time threat detection.</div>
+    </div>
+  </div>
+
+  <div class="metrics-strip green">
+    <div class="metric-item">
+      <span class="metric-value">360</span>
+      <span class="metric-label es">Cobertura EO/IR</span>
+      <span class="metric-label en">EO/IR Coverage</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-value">24/7</span>
+      <span class="metric-label es">Patrullaje Autonomo</span>
+      <span class="metric-label en">Autonomous Patrol</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-value">3D</span>
+      <span class="metric-label">LiDAR</span>
+    </div>
+    <div class="metric-callout">
+      <b class="es">Integracion C5:</b><b class="en">C5 Integration:</b>
+      <span class="es"> Datos encriptados en tiempo real al Centro de Comando municipal.</span>
+      <span class="en"> Real-time encrypted data streaming to the municipal Command Center.</span>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="col-left">
+      <div class="section-heading es">Especificaciones Tecnicas</div>
+      <div class="section-heading en">Technical Specifications</div>
+
+      <div class="tech-row">
+        <div class="tech-num">01</div>
+        <div>
+          <div class="tech-title es">Camaras Termicas EO/IR 360</div>
+          <div class="tech-title en">360 EO/IR Thermal Imaging</div>
+          <div class="tech-body es">Visibilidad completa en oscuridad absoluta. Detecta firmas de calor humano a mas de 800 metros sin luz ambiental, indispensable para operaciones nocturnas en trochas de alto riesgo.</div>
+          <div class="tech-body en">Complete visibility in total darkness. Detects human heat signatures at over 800 meters with no ambient light - essential for nocturnal operations on high-risk border trochas.</div>
+        </div>
+      </div>
+
+      <div class="tech-row">
+        <div class="tech-num">02</div>
+        <div>
+          <div class="tech-title es">LiDAR 3D - Navegacion en Modo Ciego</div>
+          <div class="tech-title en">3D LiDAR - Blind-Mode Navigation</div>
+          <div class="tech-body es">Mapeo de nube de puntos para escalar escaleras, cruzar rocas y navegar espacios confinados sin senal satelital. Genera modelos de terreno tridimensionales en tiempo real.</div>
+          <div class="tech-body en">Point-cloud mapping enables stair-climbing, rock traversal, and confined-space navigation without satellite positioning. Generates 3D terrain models in real time.</div>
+        </div>
+      </div>
+
+      <div class="tech-row">
+        <div class="tech-num">03</div>
+        <div>
+          <div class="tech-title es">Enlace de Datos Tactico Encriptado</div>
+          <div class="tech-title en">Encrypted Tactical Data Link</div>
+          <div class="tech-body es">Conexion encriptada al Centro C5. Video, telemetria y posicion en vivo con latencia menor a 200ms a traves de la red municipal privada.</div>
+          <div class="tech-body en">Encrypted connection to the C5 Command Center. Live video, telemetry, and position under 200ms latency via the city's private municipal network.</div>
+        </div>
+      </div>
+
+      <div class="tech-row">
+        <div class="tech-num">04</div>
+        <div>
+          <div class="tech-title es">Deteccion de Artefactos Explosivos</div>
+          <div class="tech-title en">Explosive Hazard Detection</div>
+          <div class="tech-body es">Sensores quimicos y radar de penetracion de suelo para deteccion autonoma de artefactos en rutas de aproximacion - cero exposicion humana.</div>
+          <div class="tech-body en">Chemical sensors and ground-penetrating radar for autonomous detection of buried ordnance on approach routes - zero human exposure.</div>
+        </div>
+      </div>
+
+      <div class="section-heading es" style="margin-top:16px;">Especificaciones de la Plataforma</div>
+      <div class="section-heading en" style="margin-top:16px;">Platform Specifications</div>
+      <table class="spec-table">
+        <tr>
+          <td><span class="es">Tipo</span><span class="en">Type</span></td>
+          <td><span class="es">Q-UGV cuadrupedo, todo terreno</span><span class="en">Quadrupedal UGV, all-terrain</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">Autonomia</span><span class="en">Range</span></td>
+          <td>8-12 km</td>
+        </tr>
+        <tr>
+          <td><span class="es">Terreno</span><span class="en">Terrain</span></td>
+          <td><span class="es">Escaleras, grava, barro, hasta 45 grados</span><span class="en">Stairs, gravel, mud, up to 45 degrees</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">Proteccion</span><span class="en">Protection</span></td>
+          <td>IP67</td>
+        </tr>
+        <tr>
+          <td><span class="es">Comunicacion</span><span class="en">Communication</span></td>
+          <td><span class="es">Red privada municipal / LTE</span><span class="en">Private municipal network / LTE</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-right">
+      <div class="section-heading es">Valor Operacional</div>
+      <div class="section-heading en">Operational Value</div>
+
+      <div class="value-box">
+        <div class="value-box-title es">Primer Elemento de Avanzada</div>
+        <div class="value-box-title en">Point-Man Force Multiplier</div>
+        <div class="value-box-text es">El Q-UGV ingresa a estructuras de alto riesgo, tuneles y vegetacion densa antes que cualquier agente. Transmite video en vivo a las tabletas de los oficiales para decisiones tacticas sin exposicion de personal.</div>
+        <div class="value-box-text en">The Q-UGV enters high-risk structures, tunnels, and dense vegetation before any officer, streaming live video to officers' tablets for informed decisions without exposing personnel.</div>
+      </div>
+
+      <div class="value-box">
+        <div class="value-box-title es">Prioridad: Vida Humana</div>
+        <div class="value-box-title en">Priority: Human Life</div>
+        <div class="value-box-text es">Al detectar amenazas explosivas de forma autonoma, se reducen las bajas policiales a cero en reconocimiento previo a entrada. El sistema absorbe el riesgo para que los agentes no tengan que hacerlo.</div>
+        <div class="value-box-text en">By autonomously detecting explosive threats, officer casualties are reduced to zero in pre-entry reconnaissance. The system absorbs risk so officers do not have to.</div>
+      </div>
+
+      <div class="value-box">
+        <div class="value-box-title es">Integracion al Centro de Comando C5</div>
+        <div class="value-box-title en">C5 Command Center Integration</div>
+        <div class="value-box-text es">Todos los datos del Q-UGV se integran al Centro C5 de Cucuta. Las rutas de patrullaje se optimizan con inteligencia artificial segun historial de incidentes e indicadores en tiempo real.</div>
+        <div class="value-box-text en">All Q-UGV data feeds into Cucuta's C5 Command Center. Patrol routes are AI-optimized based on incident history and real-time threat indicators.</div>
+      </div>
+
+      <div class="section-heading es" style="margin-top:20px;">Zonas de Despliegue</div>
+      <div class="section-heading en" style="margin-top:20px;">Deployment Zones</div>
+      <table class="spec-table">
+        <tr>
+          <td><span class="es">Zona 1</span><span class="en">Zone 1</span></td>
+          <td><span class="es">Trochas fronterizas - corredor Cucuta-Venezuela</span><span class="en">Border trochas - Cucuta-Venezuela corridor</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">Zona 2</span><span class="en">Zone 2</span></td>
+          <td><span class="es">Barrios de alto riesgo - patrullaje nocturno</span><span class="en">High-risk barrios - overnight patrol</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">Zona 3</span><span class="en">Zone 3</span></td>
+          <td><span class="es">Perimetros de infraestructura critica</span><span class="en">Critical infrastructure perimeters</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">Base de carga</span><span class="en">Charging dock</span></td>
+          <td><span class="es">Refugios blindados - diseno Jucamal/MSS</span><span class="en">Blast-resistant shelters - Jucamal/MSS design</span></td>
+        </tr>
+      </table>
+
+      <div class="align-note">
+        <div class="align-note-title es">Alineacion - Plan de Desarrollo</div>
+        <div class="align-note-title en">Development Plan Alignment</div>
+        <div class="align-note-text es">Apoya el eje de seguridad territorial del plan "Cucuta Perseverante, Segura y Productiva" con una plataforma medible, auditable y bajo soberania municipal completa.</div>
+        <div class="align-note-text en">Directly supports the territorial security axis of the "Cucuta Perseverante, Segura y Productiva" plan - measurable, auditable, under full municipal sovereignty.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-links">Jucamal Ingenieria - <a href="http://www.jucamal.com">jucamal.com</a> - Cucuta | Military Solutions Services - <a class="green" href="http://www.militaryservices.co">militaryservices.co</a> - Iowa, USA</div>
+    <div class="page-footer-num">Confidencial - <span class="es">Pag.</span><span class="en">Page</span> 02</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 3 - ROBOTIC SCAVENGER
+═══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-topbar orange"></div>
+  <div class="page-header">
+    <div class="page-brand">Cucuta - <b class="orange es">Infraestructura Resiliente</b><b class="orange en">Resilient Infrastructure</b></div>
+    <div class="page-folio"><span class="es">Propuesta</span><span class="en">Proposal</span> 02/02</div>
+  </div>
+
+  <div class="proposal-hero">
+    <div class="proposal-hero-bg">
+      <img src="media/image2.jpg" alt="Robotic Scavenger">
+    </div>
+    <div class="proposal-hero-fade" style="background:linear-gradient(100deg,rgba(13,27,42,0.94) 0%,rgba(14,12,6,0.52) 100%);"></div>
+    <div class="proposal-hero-content">
+      <div class="proposal-tag orange es">Propuesta 02 - Saneamiento e Infraestructura</div>
+      <div class="proposal-tag orange en">Proposal 02 - Sanitation & Infrastructure</div>
+      <div class="proposal-title">
+        <span class="es">El Recolector <span class="light">Robotico</span></span>
+        <span class="en">The Robotic <span class="light">Scavenger</span></span>
+      </div>
+      <div class="proposal-desc es">Unidades roboticas automatizadas para limpieza de pozos y tuberias con cero entrada humana, diagnostico estructural por IA y Gemelo Digital subterraneo.</div>
+      <div class="proposal-desc en">Automated robotic units for manhole and pipe cleaning with zero human entry, AI-powered structural diagnostics, and underground Digital Twin mapping.</div>
+    </div>
+  </div>
+
+  <div class="metrics-strip orange">
+    <div class="metric-item">
+      <span class="metric-value">250kg</span>
+      <span class="metric-label es">Residuos/Pasada</span>
+      <span class="metric-label en">Waste/Pass</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-value">0</span>
+      <span class="metric-label es">Entrada Humana</span>
+      <span class="metric-label en">Human Entry</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-value">4K HD</span>
+      <span class="metric-label es">Diagnostico IA</span>
+      <span class="metric-label en">AI Diagnostics</span>
+    </div>
+    <div class="metric-callout">
+      <b class="es">Gemelo Digital:</b><b class="en">Digital Twin:</b>
+      <span class="es"> Cada pasada robotica construye un mapa vivo de la red subterranea de Cucuta.</span>
+      <span class="en"> Every robotic pass builds a living map of Cucuta's underground network.</span>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="col-left">
+      <div class="section-heading orange es">Tecnologia Central</div>
+      <div class="section-heading orange en">Core Technology</div>
+
+      <div class="tech-row">
+        <div class="tech-num orange">01</div>
+        <div>
+          <div class="tech-title es">Operaciones con Cero Entrada Humana</div>
+          <div class="tech-title en">Zero Human-Entry Operations</div>
+          <div class="tech-body es">Las unidades se bajan mediante grua a los pozos de inspeccion. Los trabajadores permanecen sobre el suelo en todo momento, eliminando la exposicion a metano, sulfuro de hidrogeno y entornos con deficit de oxigeno.</div>
+          <div class="tech-body en">Robotic units are lowered via service crane into manholes. Workers remain above ground at all times, fully eliminating exposure to methane, hydrogen sulfide, and oxygen-deficient environments.</div>
+        </div>
+      </div>
+
+      <div class="tech-row">
+        <div class="tech-num orange">02</div>
+        <div>
+          <div class="tech-title es">Extraccion de Alta Capacidad</div>
+          <div class="tech-title en">High-Capacity Extraction</div>
+          <div class="tech-body es">Brazos hidraulicos expandibles extraen hasta 250 kg de residuos por pasada operacional, restaurando la capacidad total de flujo en un solo despliegue.</div>
+          <div class="tech-body en">Expandable hydraulic arms extract up to 250 kg of waste per operational pass, restoring full flow capacity in a single deployment.</div>
+        </div>
+      </div>
+
+      <div class="tech-row">
+        <div class="tech-num orange">03</div>
+        <div>
+          <div class="tech-title es">Deteccion de Grietas con IA</div>
+          <div class="tech-title en">AI Crack Detection</div>
+          <div class="tech-body es">Camaras 4K HD con IA clasifican grietas, desplazamiento de juntas, intrusion de raices y riesgo de colapso. Los hallazgos se georreferencian en el Gemelo Digital en tiempo real.</div>
+          <div class="tech-body en">4K HD cameras with AI classify cracks, joint displacement, root intrusion, and collapse risk. Findings are georeferenced in the Digital Twin in real time.</div>
+        </div>
+      </div>
+
+      <div class="tech-row">
+        <div class="tech-num orange">04</div>
+        <div>
+          <div class="tech-title es">Gemelo Digital Subterraneo</div>
+          <div class="tech-title en">Underground Digital Twin</div>
+          <div class="tech-body es">Datos acumulados de cada despliegue construyen un modelo 3D actualizado continuamente de la red de drenaje completa - un activo municipal permanente.</div>
+          <div class="tech-body en">Cumulative data from every deployment builds a continuously updated 3D model of the complete drainage network - a permanent municipal asset.</div>
+        </div>
+      </div>
+
+      <div class="section-heading orange es" style="margin-top:16px;">Especificaciones</div>
+      <div class="section-heading orange en" style="margin-top:16px;">Specifications</div>
+      <table class="spec-table">
+        <tr>
+          <td><span class="es">Extraccion</span><span class="en">Extraction</span></td>
+          <td><span class="es">Hasta 250 kg por pasada</span><span class="en">Up to 250 kg per pass</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">Gases</span><span class="en">Gas Monitor</span></td>
+          <td>CH4, H2S, CO, O2</td>
+        </tr>
+        <tr>
+          <td><span class="es">Camara</span><span class="en">Camera</span></td>
+          <td>4K HD + <span class="es">luz estructurada</span><span class="en">structured light</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">Tuberias</span><span class="en">Pipe range</span></td>
+          <td>200mm - 1,800mm</td>
+        </tr>
+        <tr>
+          <td><span class="es">Datos</span><span class="en">Data</span></td>
+          <td>GIS / DWG / IFC</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-right">
+      <div class="section-heading orange es">Impacto y Propuesta de Valor</div>
+      <div class="section-heading orange en">Impact & Value</div>
+
+      <div class="value-box orange">
+        <div class="value-box-title es">Resiliencia Climatica - Prevencion de Inundaciones</div>
+        <div class="value-box-title en">Climate Resilience - Flood Prevention</div>
+        <div class="value-box-text es">La limpieza robotica proactiva de la red de drenaje previene inundaciones por obstruccion antes de cada temporada de lluvias, protegiendo comunidades y reduciendo costos de emergencia.</div>
+        <div class="value-box-text en">Proactive robotic drainage cleaning prevents blockage-driven floods before each rainy season, protecting communities and reducing emergency costs.</div>
+      </div>
+
+      <div class="value-box orange">
+        <div class="value-box-title es">Reduccion de Costos a Largo Plazo</div>
+        <div class="value-box-title en">Long-Term Cost Reduction</div>
+        <div class="value-box-text es">El Gemelo Digital permite priorizar reparaciones por criticidad estructural. Municipios con modelos predictivos reportan reducciones del 40 al 60% en gastos de emergencia en periodos de tres anos.</div>
+        <div class="value-box-text en">The Digital Twin enables prioritizing repairs by structural criticality. Municipalities using predictive models report 40-60% reductions in emergency repair costs over three years.</div>
+      </div>
+
+      <div class="value-box orange">
+        <div class="value-box-title es">Seguridad Laboral - Cero Fatalidades</div>
+        <div class="value-box-title en">Worker Safety - Zero Fatalities</div>
+        <div class="value-box-text es">Este sistema elimina el riesgo en su origen: sin entrada en espacios confinados, sin exposicion a gases toxicos, sin operaciones de rescate necesarias.</div>
+        <div class="value-box-text en">This system eliminates the hazard at its source: no confined-space entry, no toxic gas exposure, no rescue operations needed.</div>
+      </div>
+
+      <div class="section-heading orange es" style="margin-top:20px;">Protocolo de Despliegue</div>
+      <div class="section-heading orange en" style="margin-top:20px;">Deployment Protocol</div>
+      <table class="spec-table">
+        <tr>
+          <td><span class="es">Fase 1</span><span class="en">Phase 1</span></td>
+          <td><span class="es">Corredores prioritarios - comunas con riesgo de inundacion</span><span class="en">Priority corridors - flood-prone comunas</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">Fase 2</span><span class="en">Phase 2</span></td>
+          <td><span class="es">Escaneo de red completa - Gemelo Digital</span><span class="en">Full network scan - Digital Twin</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">Fase 3</span><span class="en">Phase 3</span></td>
+          <td><span class="es">Mantenimiento predictivo optimizado por IA</span><span class="en">AI-optimized predictive maintenance</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">Integracion</span><span class="en">Integration</span></td>
+          <td><span class="es">Vinculado al Centro de Comando C5</span><span class="en">Linked to C5 Command Center</span></td>
+        </tr>
+      </table>
+
+      <div class="align-note orange">
+        <div class="align-note-title es">Alineacion - Plan de Desarrollo</div>
+        <div class="align-note-title en">Development Plan Alignment</div>
+        <div class="align-note-text es">Apoya el eje de infraestructura del plan "Cucuta Productiva". El Gemelo Digital es un activo municipal permanente que aumenta la credibilidad tecnica de Cucuta para financiamiento futuro.</div>
+        <div class="align-note-text en">Supports the "Cucuta Productiva" infrastructure axis. The Digital Twin is a permanent municipal asset increasing Cucuta's credibility for future infrastructure financing.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-links">Jucamal Ingenieria - <a href="http://www.jucamal.com">jucamal.com</a> - Cucuta | Military Solutions Services - <a class="green" href="http://www.militaryservices.co">militaryservices.co</a> - Iowa, USA</div>
+    <div class="page-footer-num">Confidencial - <span class="es">Pag.</span><span class="en">Page</span> 03</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 4 - BACK COVER
+═══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-topbar split"></div>
+  <div class="page-header">
+    <div class="page-brand">Cucuta - <b class="es">La Alianza Colombo-Americana</b><b class="en">The Colombo-American Alliance</b></div>
+    <div class="page-folio"><span class="es">La Ventaja</span><span class="en">Alliance Edge</span></div>
+  </div>
+
+  <div class="back-hero">
+    <div class="back-eyebrow es">La Ventaja de la Alianza - Respaldo Tecnico Binacional</div>
+    <div class="back-eyebrow en">The Alliance Edge - Bi-National Technical Backing</div>
+    <div class="back-title">
+      <span class="es"><span class="highlight">Construyendo</span> una Cucuta Segura y Productiva a traves de la <span class="highlight">Soberania Tecnologica</span></span>
+      <span class="en">Building a <span class="highlight">Secure</span> and Productive Cucuta Through <span class="highlight">Technological Sovereignty</span></span>
+    </div>
+    <div class="back-subtitle es">Alianza estrategica colombo-americana: Jucamal Ingenieria (Cucuta, Colombia) + Military Solutions Services (Cedar Rapids, Iowa, USA)</div>
+    <div class="back-subtitle en">Colombo-American strategic alliance: Jucamal Ingenieria (Cucuta, Colombia) + Military Solutions Services (Cedar Rapids, Iowa, USA)</div>
+  </div>
+
+  <div class="two-col">
+    <div class="col-left">
+      <div class="section-heading es" style="margin-bottom:18px;">Capacidades de la Alianza</div>
+      <div class="section-heading en" style="margin-bottom:18px;">Alliance Capabilities</div>
+
+      <div class="cap-row">
+        <div class="cap-title es">Bases de Carga Blindadas</div>
+        <div class="cap-title en">Blast-Resistant Charging Docks</div>
+        <div class="cap-text es">Refugios blindados disenados por Jucamal y MSS, integrados a la red electrica municipal. Certificados conforme a la norma sismica NSR-10 y estandares INVIAS.</div>
+        <div class="cap-text en">Armored shelters designed by Jucamal and MSS, integrated into the municipal electrical grid. Certified to NSR-10 seismic norms and INVIAS standards.</div>
+      </div>
+
+      <div class="cap-row">
+        <div class="cap-title es">Red Municipal Privada y Propietaria</div>
+        <div class="cap-title en">Private Proprietary Municipal Network</div>
+        <div class="cap-text es">Todas las comunicaciones roboticas operan en una red de datos municipal exclusiva, aislada de operadores comerciales. Los datos de seguridad nunca transitan por redes publicas.</div>
+        <div class="cap-text en">All robotic communications operate on a municipally-owned network, isolated from commercial carriers. Security data never transits through public networks.</div>
+      </div>
+
+      <div class="cap-row">
+        <div class="cap-title es">Soberania Total de Datos</div>
+        <div class="cap-title en">Total Data Sovereignty</div>
+        <div class="cap-text es">Toda la inteligencia recopilada permanece bajo custodia exclusiva de la Alcaldia de Cucuta. Propiedad legal garantizada contractualmente. Cero exposicion a servidores externos.</div>
+        <div class="cap-text en">All collected intelligence remains under exclusive custody of the Alcaldia de Cucuta. Legal ownership guaranteed by contract. Zero exposure to external servers.</div>
+      </div>
+
+      <div class="team-image">
+        <img src="media/image3.jpg" alt="Alliance Team">
+      </div>
+
+      <div class="why-box">
+        <div class="why-box-title es">Por que esta alianza es decisiva</div>
+        <div class="why-box-title en">Why This Alliance Is Decisive</div>
+        <div class="why-box-text es">La pericia robotica de grado militar de EE.UU. combinada con el dominio en ingenieria civil local crea una capacidad de implementacion que ningun socio podria lograr de forma independiente.</div>
+        <div class="why-box-text en">US military-grade robotics expertise combined with local civil engineering mastery creates an implementation capability neither partner could achieve independently.</div>
+      </div>
+    </div>
+
+    <div class="col-right">
+      <div class="section-heading es" style="margin-bottom:18px;">El Equipo de la Alianza</div>
+      <div class="section-heading en" style="margin-bottom:18px;">The Alliance Team</div>
+
+      <div class="partner-card">
+        <div class="partner-bar co es">Colombia - Socio Fundador Local</div>
+        <div class="partner-bar co en">Colombia - Local Founding Partner</div>
+        <div class="partner-role co es">Socio de Ingenieria Civil - Lider Regional</div>
+        <div class="partner-role co en">Civil Engineering Partner - Regional Lead</div>
+        <div class="partner-name">Jucamal Ingenieria</div>
+        <div class="partner-bio es">Empresa lider de ingenieria civil en Cucuta con amplia experiencia en diseno de infraestructura urbana, analisis estructural y relaciones institucionales con INVIAS y entidades del gobierno de Norte de Santander.</div>
+        <div class="partner-bio en">Leading civil engineering firm in Cucuta with extensive expertise in urban infrastructure design, structural analysis, and institutional relationships with INVIAS and Norte de Santander government agencies.</div>
+        <div class="partner-tags">
+          <span class="partner-tag es">Ingenieria Civil</span><span class="partner-tag en">Civil Engineering</span>
+          <span class="partner-tag es">Estructural</span><span class="partner-tag en">Structural</span>
+          <span class="partner-tag">NSR-10</span>
+        </div>
+        <a href="http://www.jucamal.com" class="partner-url co">www.jucamal.com - Cucuta, Colombia</a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-bar us es">Estados Unidos - Socio Tecnologico</div>
+        <div class="partner-bar us en">United States - Technology Partner</div>
+        <div class="partner-role us es">Consultor Tecnico Principal - EE.UU.</div>
+        <div class="partner-role us en">Lead Technical Consultant - USA</div>
+        <div class="partner-name">Military Solutions Services LLC</div>
+        <div class="partner-bio es">Veterano de la Guerra de Irak entrenado por el Ejercito de EE.UU. con experiencia avanzada en robotica, automatizacion y ciberseguridad. Historial en integracion de sistemas de mando y control.</div>
+        <div class="partner-bio en">Iraq War Veteran and US Army-trained specialist with advanced expertise in robotics, automation, and cybersecurity. Background in command-and-control systems integration.</div>
+        <div class="partner-tags">
+          <span class="partner-tag es">Veterano</span><span class="partner-tag en">Veteran</span>
+          <span class="partner-tag es">Robotica</span><span class="partner-tag en">Robotics</span>
+          <span class="partner-tag">C5/C4ISR</span>
+        </div>
+        <a href="http://www.militaryservices.co" class="partner-url us">www.militaryservices.co - Iowa, USA</a>
+      </div>
+
+      <div class="next-box">
+        <div class="next-box-title es">Proximos Pasos</div>
+        <div class="next-box-title en">Next Steps</div>
+        <div class="next-box-text es">Solicitamos una reunion de demostracion tecnica con su despacho. Listos para presentar plataformas roboticas en operacion y cronogramas detallados dentro de 30 dias de la firma de carta de intencion.</div>
+        <div class="next-box-text en">We request a technical demonstration meeting with your office. Ready to present live robotic platforms and detailed timelines within 30 days of a signed letter of intent.</div>
+        <div class="next-box-contact">
+          <span>contact@militaryservices.co</span>
+          <span>www.jucamal.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-strip">
+    <div class="cta-content">
+      <div class="cta-title es">"Construyendo una Cucuta Segura y Productiva a traves de la Soberania Tecnologica."</div>
+      <div class="cta-title en">"Building a Secure and Productive Cucuta Through Technological Sovereignty."</div>
+      <div class="cta-subtitle es">Jucamal Ingenieria + Military Solutions Services - Alianza Colombo-Americana</div>
+      <div class="cta-subtitle en">Jucamal Ingenieria + Military Solutions Services - Colombo-American Alliance</div>
+    </div>
+    <button class="cta-button es" onclick="openCalendly()">Solicitar Reunion</button>
+    <button class="cta-button en" onclick="openCalendly()">Request Meeting</button>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-links">2024-2027 Jucamal Ingenieria - <a href="http://www.jucamal.com">jucamal.com</a> - Cucuta | Military Solutions Services LLC - <a class="green" href="http://www.militaryservices.co">militaryservices.co</a> - Iowa, USA</div>
+    <div class="page-footer-num">Confidencial - <span class="es">Propuesta - Pag.</span><span class="en">Proposal - Page</span> 04</div>
+  </div>
+</div>
+
+<script>
+// Language Toggle
+function setLang(lang) {
+  const body = document.body;
+  const btnEs = document.getElementById('btn-es');
+  const btnEn = document.getElementById('btn-en');
+  const htmlRoot = document.getElementById('html-root');
+
+  if (lang === 'en') {
+    body.classList.add('lang-en');
+    btnEn.classList.add('active');
+    btnEs.classList.remove('active');
+    htmlRoot.setAttribute('lang', 'en');
+    document.title = 'Cucuta: Intelligent Security & Resilient Infrastructure';
+  } else {
+    body.classList.remove('lang-en');
+    btnEs.classList.add('active');
+    btnEn.classList.remove('active');
+    htmlRoot.setAttribute('lang', 'es');
+    document.title = 'Cucuta: Seguridad Inteligente e Infraestructura Resiliente';
+  }
+
+  try {
+    localStorage.setItem('cucuta-lang', lang);
+  } catch (e) {}
+}
+
+// Calendly Integration
+function openCalendly() {
+  if (typeof Calendly !== 'undefined') {
+    Calendly.initPopupWidget({ url: 'https://calendly.com/torregroxa/30min' });
+  }
+  return false;
+}
+
+// Restore saved language preference
+try {
+  const savedLang = localStorage.getItem('cucuta-lang');
+  if (savedLang === 'en') {
+    setLang('en');
+  }
+} catch (e) {}
+
+// PDF Download - fallback to print if no PDF file exists
+document.getElementById('pdf-download').addEventListener('click', function(e) {
+  // Check if PDF exists, if not use print
+  const link = this;
+  fetch(link.href, { method: 'HEAD' })
+    .then(response => {
+      if (!response.ok) {
+        e.preventDefault();
+        window.print();
+      }
+    })
+    .catch(() => {
+      e.preventDefault();
+      window.print();
+    });
+});
+</script>
+</body>
+</html>

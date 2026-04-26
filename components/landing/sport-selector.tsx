@@ -141,7 +141,7 @@ function CourtCard({ court }: { court: Court }) {
 
         {/* Status Dot */}
         <div className="absolute top-3 left-3">
-          <StatusDot status={court.status} showLabel size="md" />
+          <StatusDot status={court?.status ?? 'available'} showLabel size="md" />
         </div>
       </div>
 

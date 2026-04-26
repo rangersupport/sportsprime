@@ -1,6 +1,7 @@
 'use client'
 
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -128,7 +129,7 @@ function CourtCard({
   isSelected: boolean
   onSelect: (court: Court) => void
 }) {
-  const isOccupied = court.status === 'occupied'
+  const isOccupied = court?.status === 'occupied'
 
   return (
     <motion.button
@@ -143,8 +144,8 @@ function CourtCard({
     >
       {/* Sport Badge */}
       <div className="flex items-start justify-between mb-3">
-        <GoldBadge size="sm">{sportNames[court.sport_type]}</GoldBadge>
-        <StatusDot status={court.status} showLabel size="sm" />
+        <GoldBadge size="sm">{sportNames[court?.sport_type ?? 'padel']}</GoldBadge>
+        <StatusDot status={court?.status ?? 'available'} showLabel size="sm" />
       </div>
 
       {/* Court Info */}
