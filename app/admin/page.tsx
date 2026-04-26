@@ -251,7 +251,7 @@ export default function AdminDashboard() {
                             booking.status === "cancelled" && "bg-red-100 text-red-700"
                           )}
                         >
-                          <StatusDot status={booking.status as "confirmed" | "pending" | "cancelled"} />
+                          <StatusDot status={booking.status as "confirmed" | "pending" | "cancelled"} size="sm" />
                           {statusInfo.label}
                         </Badge>
                       </TableCell>

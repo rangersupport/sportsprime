@@ -1,37 +1,62 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import type { CourtStatus } from '@/lib/types'
+
+type StatusType = 
+  | 'available' 
+  | 'ending_soon' 
+  | 'occupied' 
+  | 'maintenance'
+  | 'confirmed'
+  | 'pending'
+  | 'cancelled'
 
 interface StatusDotProps {
-  status: CourtStatus
+  status: StatusType
   showLabel?: boolean
   size?: 'sm' | 'md' | 'lg'
   className?: string
 }
 
 const statusConfig: Record<
-  CourtStatus,
+  StatusType,
   { color: string; label: string; pulse: boolean }
 > = {
+  // Court statuses
   available: {
-    color: 'bg-sp-success',
+    color: 'bg-emerald-500',
     label: 'Disponible',
     pulse: true,
   },
   ending_soon: {
-    color: 'bg-sp-warning',
+    color: 'bg-amber-500',
     label: 'Terminando',
     pulse: true,
   },
   occupied: {
-    color: 'bg-sp-danger',
+    color: 'bg-red-500',
     label: 'Ocupada',
     pulse: false,
   },
   maintenance: {
-    color: 'bg-sp-muted',
+    color: 'bg-gray-400',
     label: 'Mantenimiento',
+    pulse: false,
+  },
+  // Booking statuses
+  confirmed: {
+    color: 'bg-emerald-500',
+    label: 'Confirmada',
+    pulse: false,
+  },
+  pending: {
+    color: 'bg-amber-500',
+    label: 'Pendiente',
+    pulse: true,
+  },
+  cancelled: {
+    color: 'bg-red-500',
+    label: 'Cancelada',
     pulse: false,
   },
 }
@@ -42,7 +67,11 @@ export function StatusDot({
   size = 'md',
   className,
 }: StatusDotProps) {
-  const config = statusConfig[status]
+  const config = statusConfig[status] || {
+    color: 'bg-gray-400',
+    label: status,
+    pulse: false,
+  }
 
   const sizeClasses = {
     sm: 'w-2 h-2',
