@@ -171,8 +171,14 @@ export function HeroCinematic() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="absolute bottom-24 right-4 md:bottom-32 md:right-10 hidden md:flex items-start gap-3"
         >
-          <div className="w-12 h-12 rounded-full bg-sp-stone flex items-center justify-center text-sp-muted font-mono text-sm">
-            CP
+          <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/20">
+            <Image
+              src="/images/coach-peralta.png"
+              alt="Coach Peralta"
+              width={48}
+              height={48}
+              className="object-cover w-full h-full"
+            />
           </div>
           <div className="text-right">
             <p className="font-serif italic text-white text-sm">
