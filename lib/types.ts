@@ -2,6 +2,7 @@
 
 export type SportType =
   | 'padel'
+  | 'padbol'
   | 'tenis'
   | 'futbol'
   | 'baloncesto'
@@ -22,7 +23,6 @@ export type PaymentMethod =
   | 'nequi'
   | 'daviplata'
   | 'pse'
-  | 'efecty'
   | 'card'
   | 'cash'
 

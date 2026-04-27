@@ -46,6 +46,10 @@ const mockCourts: Record<SportType, Court[]> = {
   futsal: [
     { id: '11', name: 'Cancha Indoor', sport: 'futsal', image: '/images/courts/futsal-1.jpg', price: 60000, rating: 4.8, status: 'available', club: 'Futsal Pro' },
   ],
+  padbol: [
+    { id: '13', name: 'Padbol Norte', sport: 'padbol', image: '/images/courts/padbol-1.jpg', price: 50000, rating: 5.0, status: 'available', club: 'MACH Club' },
+    { id: '14', name: 'Padbol Sur', sport: 'padbol', image: '/images/courts/padbol-2.jpg', price: 50000, rating: 5.0, status: 'available', club: 'MACH Club' },
+  ],
   squash: [
     { id: '12', name: 'Court A', sport: 'squash', image: '/images/courts/squash-1.jpg', price: 30000, rating: 4.9, status: 'available', club: 'Squash Center' },
   ],

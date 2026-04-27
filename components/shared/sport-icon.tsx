@@ -98,6 +98,18 @@ export function SportIcon({ sport, className, size = 24 }: SportIconProps) {
         </svg>
       )
 
+    case 'padbol':
+      return (
+        <svg {...iconProps}>
+          {/* Padbol: solid racket face + football seams */}
+          <ellipse cx="12" cy="9" rx="6" ry="7" />
+          <line x1="12" y1="16" x2="12" y2="23" />
+          <path d="M8 7 Q12 5 16 7" />
+          <path d="M8 11 Q12 13 16 11" />
+          <line x1="12" y1="2" x2="12" y2="16" />
+        </svg>
+      )
+
     case 'squash':
       return (
         <svg {...iconProps}>
@@ -124,6 +136,7 @@ export function SportIcon({ sport, className, size = 24 }: SportIconProps) {
 // Sport names mapping
 export const sportNames: Record<SportType, string> = {
   padel: 'Pádel',
+  padbol: 'Padbol',
   tenis: 'Tenis',
   futbol: 'Fútbol',
   baloncesto: 'Baloncesto',

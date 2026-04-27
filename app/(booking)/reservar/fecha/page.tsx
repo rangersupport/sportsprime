@@ -75,13 +75,13 @@ export default function ReservarStep2() {
 
   const handleDateSelect = (d: Date) => {
     setSelectedDate(d)
-    const formatted = d.toLocaleDateString('es-CO', { 
-      day: '2-digit', 
-      month: 'short', 
-      year: 'numeric' 
+    const formatted = d.toLocaleDateString('es-CO', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
     })
-    setDate(formatted)
-    // Reset time when date changes
+    const iso = d.toISOString().split('T')[0]
+    setDate(formatted, iso)
     setStartTime('')
   }
 

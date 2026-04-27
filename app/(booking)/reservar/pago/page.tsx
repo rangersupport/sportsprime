@@ -2,7 +2,7 @@
 
 export const dynamic = 'force-dynamic'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { cn, formatCOP } from '@/lib/utils'
@@ -10,8 +10,10 @@ import { ProgressBar } from '@/components/booking/progress-bar'
 import { useBookingStore } from '@/lib/stores/booking-store'
 import { Spinner } from '@/components/ui/spinner'
 import type { PaymentMethod } from '@/lib/types'
+import { supabase } from '@/lib/supabase'
+import { generateBookingRef } from '@/lib/utils'
 
-const paymentMethods: { id: PaymentMethod; name: string; icon: JSX.Element }[] = [
+const paymentMethods: { id: PaymentMethod; name: string; icon: React.ReactElement }[] = [
   {
     id: 'nequi',
     name: 'Nequi',
@@ -43,7 +45,7 @@ const paymentMethods: { id: PaymentMethod; name: string; icon: JSX.Element }[] =
     ),
   },
   {
-    id: 'credit_card',
+    id: 'card',
     name: 'Tarjeta de crédito',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -68,18 +70,24 @@ const paymentMethods: { id: PaymentMethod; name: string; icon: JSX.Element }[] =
 
 export default function ReservarStep4() {
   const router = useRouter()
-  const { 
-    court, 
-    date, 
-    startTime, 
+  const {
+    court,
+    date,
+    isoDate,
+    startTime,
+    duration,
+    numPlayers,
     playerName,
+    playerPhone,
+    playerEmail,
+    notes,
     paymentMethod,
     promoCode,
     subtotal,
     iva,
     total,
     setPaymentMethod,
-    setPromoCode 
+    setPromoCode,
   } = useBookingStore()
   const [isHydrated, setIsHydrated] = useState(false)
 
@@ -115,16 +123,46 @@ export default function ReservarStep4() {
   }
 
   const handlePayment = async () => {
-    if (!paymentMethod) return
-    
+    if (!paymentMethod || !court || !isoDate || !startTime) return
+
     setIsProcessing(true)
-    
-    // [CC:API] Process payment via Nequi/Daviplata/PSE/Stripe
-    // Simulate payment processing
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    // [CC:DB] Create booking record
-    // On success, redirect to confirmation
+
+    const finalTotal  = promoApplied ? Math.round(total * 0.9)    : total
+    const finalIva    = promoApplied ? Math.round(iva * 0.9)       : iva
+    const finalSub    = promoApplied ? Math.round(subtotal * 0.9)  : subtotal
+
+    const [h, m]  = startTime.split(':').map(Number)
+    const endMins = h * 60 + m + duration
+    const endTime = `${Math.floor(endMins / 60).toString().padStart(2, '0')}:${(endMins % 60).toString().padStart(2, '0')}`
+
+    const refCode = generateBookingRef()
+
+    const { error } = await supabase.from('bookings').insert({
+      ref_code:         refCode,
+      court_id:         court.id,
+      player_name:      playerName,
+      player_phone:     playerPhone,
+      player_email:     playerEmail,
+      date:             isoDate,
+      start_time:       startTime,
+      end_time:         endTime,
+      duration_minutes: duration,
+      num_players:      numPlayers,
+      subtotal:         finalSub,
+      iva:              finalIva,
+      total:            finalTotal,
+      payment_method:   paymentMethod,
+      payment_status:   'pending',
+      status:           'confirmed',
+      notes:            notes || null,
+    })
+
+    if (error) {
+      console.error('Booking insert failed:', error.message)
+      setIsProcessing(false)
+      return
+    }
+
     router.push('/reservar/confirmacion')
   }
 

@@ -24,9 +24,10 @@ interface BookingState {
   // Step 1: Sport & Court
   sport: SportType | null
   court: Court | null
-  
+
   // Step 2: Date & Time
-  date: string | null
+  date: string | null       // formatted for display (e.g. "27 abr. 2026")
+  isoDate: string | null    // ISO format for DB (e.g. "2026-04-27")
   startTime: string | null
   duration: number // minutes
   
@@ -49,7 +50,7 @@ interface BookingState {
   // Actions
   setSport: (sport: SportType) => void
   setCourt: (court: Court) => void
-  setDate: (date: string) => void
+  setDate: (date: string, isoDate: string) => void
   setStartTime: (time: string) => void
   setDuration: (minutes: number) => void
   setNumPlayers: (num: number) => void
@@ -64,6 +65,7 @@ const initialState = {
   sport: null,
   court: null,
   date: null,
+  isoDate: null,
   startTime: null,
   duration: 60,
   numPlayers: 2,
@@ -90,7 +92,7 @@ export const useBookingStore = create<BookingState>()(
         get().calculateTotal()
       },
       
-      setDate: (date) => set({ date }),
+      setDate: (date, isoDate) => set({ date, isoDate }),
       
       setStartTime: (time) => set({ startTime: time }),
       
@@ -140,6 +142,7 @@ export const useBookingStore = create<BookingState>()(
         sport: state.sport,
         court: state.court,
         date: state.date,
+        isoDate: state.isoDate,
         startTime: state.startTime,
         duration: state.duration,
         numPlayers: state.numPlayers,
