@@ -330,7 +330,7 @@ export default function CoachMarketplace() {
             className="text-center"
           >
             <Badge className="mb-4 bg-gold/20 text-gold border-gold/30">
-              Peralta Prime
+              Powered by Peralta Prime
             </Badge>
             <h1 className="font-display text-4xl font-bold text-cream md:text-5xl">
               Encuentra tu Entrenador Ideal

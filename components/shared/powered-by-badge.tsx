@@ -42,7 +42,7 @@ export function PoweredByBadge({
       )}
       style={textShadowStyle}
     >
-      Peralta Prime
+      Powered by Peralta Prime
     </span>
   )
 }
