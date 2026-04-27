@@ -18,10 +18,14 @@ export function GoldBadge({ children, size = 'md', className }: GoldBadgeProps) 
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full bg-sp-gold text-sp-dark font-medium uppercase tracking-wider',
+        'inline-flex items-center rounded-full font-medium uppercase tracking-wider',
         sizeClasses[size],
         className
       )}
+      style={{
+        background: '#E31E24',
+        color: '#FFFFFF',
+      }}
     >
       {children}
     </span>

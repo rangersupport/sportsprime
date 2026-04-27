@@ -20,7 +20,7 @@ export function DualAudience() {
         transition={{ duration: 0.6 }}
         className="bg-sp-green px-6 py-16 md:px-12 lg:px-16 lg:py-24"
       >
-        <span className="font-sans text-xs uppercase tracking-[0.2em] text-sp-gold">
+        <span className="font-sans text-xs uppercase tracking-[0.2em]" style={{ color: '#E31E24' }}>
           SOY DEPORTISTA
         </span>
         
@@ -44,7 +44,12 @@ export function DualAudience() {
         
         <Link
           href="/reservar"
-          className="inline-flex items-center gap-2 mt-10 px-6 py-3 rounded-full bg-sp-gold text-sp-dark font-sans font-medium hover:bg-sp-gold/90 transition-all"
+          className="inline-flex items-center gap-2 mt-10 px-6 py-3 rounded-lg font-sans font-bold uppercase tracking-[0.04em] transition-all hover:scale-[1.02]"
+          style={{
+            background: '#E31E24',
+            color: '#FFFFFF',
+            boxShadow: '0 4px 20px rgba(227,30,36,0.35)',
+          }}
         >
           Ver canchas disponibles
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

@@ -53,9 +53,13 @@ export function HeroCinematic() {
           className="object-cover"
           priority
         />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-sp-green/90" 
-             style={{ background: 'linear-gradient(to bottom, transparent 30%, rgba(10,61,46,0.88) 70%)' }} />
+        {/* Gradient Overlay - keeps top bright, darkens bottom for text */}
+        <div 
+          className="absolute inset-0"
+          style={{ 
+            background: 'linear-gradient(160deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.20) 30%, rgba(0,0,0,0.65) 65%, rgba(0,0,0,0.90) 100%)' 
+          }} 
+        />
       </div>
 
       {/* Content */}
@@ -68,11 +72,14 @@ export function HeroCinematic() {
             transition={{ duration: 0.6 }}
             className="flex items-center justify-center gap-4 mb-6"
           >
-            <span className="w-10 h-px bg-sp-gold" />
-            <span className="font-sans text-xs uppercase tracking-[0.2em] text-sp-gold">
+            <span className="w-10 h-px" style={{ background: '#E31E24', opacity: 0.9 }} />
+            <span 
+              className="font-sans text-xs uppercase tracking-[0.2em]"
+              style={{ color: '#E31E24', opacity: 0.9 }}
+            >
               Colombia&apos;s Sports Platform
             </span>
-            <span className="w-10 h-px bg-sp-gold" />
+            <span className="w-10 h-px" style={{ background: '#E31E24', opacity: 0.9 }} />
           </motion.div>
 
           {/* Headline */}
@@ -85,7 +92,10 @@ export function HeroCinematic() {
             <span className="block">Reserva. Juega.</span>
             <span className="block">
               {displayText}
-              <span className="inline-block w-[3px] h-[0.9em] bg-sp-gold ml-1 cursor-blink" />
+              <span 
+                className="inline-block w-[3px] h-[0.9em] ml-1 cursor-blink" 
+                style={{ background: '#E31E24' }}
+              />
             </span>
           </motion.h1>
 
@@ -110,7 +120,12 @@ export function HeroCinematic() {
           >
             <Link
               href="/reservar"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-sp-gold text-sp-dark font-sans font-medium hover:bg-sp-gold/90 transition-all hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-sans font-bold uppercase tracking-[0.04em] transition-all hover:scale-[1.02]"
+              style={{
+                background: '#E31E24',
+                color: '#FFFFFF',
+                boxShadow: '0 4px 20px rgba(227,30,36,0.35)',
+              }}
             >
               Reserva tu cancha
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
@@ -119,7 +134,8 @@ export function HeroCinematic() {
             </Link>
             <Link
               href="#como-funciona"
-              className="inline-flex items-center px-6 py-3.5 rounded-full border border-white/30 text-white font-sans hover:bg-white/10 transition-colors"
+              className="inline-flex items-center px-6 py-3.5 rounded-lg border text-white font-sans hover:bg-white/10 transition-colors"
+              style={{ borderColor: 'rgba(255,255,255,0.55)', borderWidth: '1.5px' }}
             >
               Ver cómo funciona
             </Link>
@@ -162,8 +178,8 @@ export function HeroCinematic() {
             <p className="font-serif italic text-white text-sm">
               &ldquo;Lo construimos para Colombia.&rdquo;
             </p>
-            <p className="text-sp-gold text-xs mt-1">— Coach Peralta</p>
-            <div className="w-10 h-px bg-sp-gold mt-2 ml-auto" />
+            <p className="text-xs mt-1" style={{ color: '#E31E24' }}>— Coach Peralta</p>
+            <div className="w-10 h-px mt-2 ml-auto" style={{ background: '#E31E24' }} />
           </div>
         </motion.div>
 
@@ -174,8 +190,11 @@ export function HeroCinematic() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center scroll-bounce"
         >
-          <div className="w-px h-10 bg-sp-gold/50" />
-          <span className="mt-2 font-mono text-[11px] text-sp-gold uppercase tracking-wider">
+          <div className="w-px h-10" style={{ background: 'rgba(227,30,36,0.5)' }} />
+          <span 
+            className="mt-2 font-mono text-[11px] uppercase tracking-wider"
+            style={{ color: '#E31E24' }}
+          >
             Scroll
           </span>
         </motion.div>

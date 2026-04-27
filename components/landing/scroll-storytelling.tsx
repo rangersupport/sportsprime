@@ -127,7 +127,7 @@ function StepContent({
 
       {/* Content */}
       <div className="relative">
-        <span className="font-mono text-sm text-sp-gold">
+        <span className="font-mono text-sm" style={{ color: '#E31E24' }}>
           Paso {step.number}
         </span>
         <h3 className="mt-4 font-serif text-display-sub text-sp-ink">
@@ -281,7 +281,7 @@ function PlayIllustration() {
       >
         <div className="text-center">
           <span className="font-sans text-lg font-medium text-sp-ink">SportsPrime</span>
-          <p className="text-xs text-sp-gold font-serif italic">Powered by Peralta Prime</p>
+          <p className="text-xs font-sans font-medium uppercase tracking-[0.06em]" style={{ color: '#E31E24' }}>Powered by Peralta Prime</p>
         </div>
 
         <div className="mt-6 space-y-2 text-sm">

@@ -6,7 +6,7 @@ interface PriceDisplayProps {
   amount: number
   showCOP?: boolean
   size?: 'sm' | 'md' | 'lg' | 'xl'
-  color?: 'default' | 'gold' | 'green' | 'muted'
+  color?: 'default' | 'gold' | 'green' | 'muted' | 'red'
   perHour?: boolean
   className?: string
 }
@@ -28,12 +28,15 @@ export function PriceDisplay({
 
   const colorClasses = {
     default: 'text-sp-ink',
-    gold: 'text-sp-gold',
+    gold: '', // use inline style for red
     green: 'text-sp-green',
     muted: 'text-sp-muted',
+    red: '', // use inline style for red
   }
 
   const formatted = showCOP ? formatCOP(amount) : `$${formatPrice(amount)}`
+
+  const useRedColor = color === 'gold' || color === 'red'
 
   return (
     <span
@@ -43,6 +46,7 @@ export function PriceDisplay({
         colorClasses[color],
         className
       )}
+      style={useRedColor ? { color: '#E31E24' } : undefined}
     >
       {formatted}
       {perHour && <span className="text-sp-muted text-sm">/hora</span>}

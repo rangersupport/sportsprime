@@ -103,7 +103,7 @@ export function PricingRows() {
               transition={{ delay: index * 0.1 }}
               className={cn(
                 'relative bg-sp-stone rounded-lg p-6 lg:p-8',
-                plan.featured && 'border-l-4 border-sp-gold'
+                plan.featured && 'border-l-4 border-[#E31E24]'
               )}
             >
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
@@ -123,7 +123,7 @@ export function PricingRows() {
                     {plan.features.map((feature) => (
                       <li
                         key={feature}
-                        className="text-sm text-sp-ink/70 before:content-['·'] before:mr-1.5 before:text-sp-gold"
+                        className="text-sm text-sp-ink/70 before:content-['·'] before:mr-1.5 before:text-[#E31E24]"
                       >
                         {feature}
                       </li>

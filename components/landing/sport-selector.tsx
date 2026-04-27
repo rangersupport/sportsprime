@@ -70,23 +70,28 @@ export function SportSelector() {
           </h2>
         </div>
 
-        {/* Sport Tabs */}
+        {/* Sport Tabs - underline style */}
         <div className="flex flex-wrap gap-3 mb-10">
           {sportTabs.map((sport) => (
             <button
               key={sport}
               onClick={() => setActiveSport(sport)}
               className={cn(
-                'flex items-center gap-2 px-4 py-2.5 rounded-full border transition-all',
+                'flex items-center gap-2 px-4 py-2.5 transition-all border-b-2',
                 activeSport === sport
-                  ? 'bg-sp-green border-sp-green text-sp-cream'
-                  : 'bg-transparent border-sp-muted/50 text-sp-muted hover:border-sp-ink hover:text-sp-ink'
+                  ? 'text-white'
+                  : 'bg-transparent border-transparent text-[#888888] hover:text-sp-ink'
               )}
+              style={activeSport === sport ? {
+                background: '#0D0D0D',
+                borderBottomColor: '#E31E24',
+                borderRadius: '8px 8px 0 0',
+              } : {}}
             >
               <SportIcon 
                 sport={sport} 
                 size={18} 
-                className={activeSport === sport ? 'text-sp-gold' : ''} 
+                className={activeSport === sport ? 'text-[#E31E24]' : ''} 
               />
               <span className="font-sans text-sm">{sportNames[sport]}</span>
             </button>
@@ -154,14 +159,14 @@ function CourtCard({ court }: { court: Court }) {
 
         <div className="mt-auto flex items-end justify-between">
           <div>
-            <p className="font-mono text-xl text-sp-green">
+            <p className="font-mono text-xl" style={{ color: '#E31E24' }}>
               {formatCOP(court.price, false)}
             </p>
             <p className="text-xs text-sp-muted">/hora</p>
           </div>
 
           <div className="flex items-center gap-1">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-sp-gold">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ color: '#E31E24' }}>
               <path d="M7 1L8.854 4.854L13 5.5L10 8.5L10.708 13L7 11L3.292 13L4 8.5L1 5.5L5.146 4.854L7 1Z" fill="currentColor"/>
             </svg>
             <span className="font-mono text-sm text-sp-ink">{court.rating}</span>
@@ -177,7 +182,11 @@ function CourtCard({ court }: { court: Court }) {
         >
           <Link
             href={`/reservar?court=${court.id}`}
-            className="block w-full py-2.5 text-center rounded-full bg-sp-green text-sp-cream font-sans text-sm hover:bg-sp-green/90 transition-colors"
+            className="block w-full py-2.5 text-center rounded-lg font-sans text-sm font-bold uppercase tracking-[0.04em] transition-colors"
+            style={{
+              background: '#E31E24',
+              color: '#FFFFFF',
+            }}
           >
             Reservar
           </Link>
@@ -185,10 +194,12 @@ function CourtCard({ court }: { court: Court }) {
       </div>
 
       {/* Selected border effect */}
-      <div className={cn(
-        'absolute inset-0 border-2 rounded-lg pointer-events-none transition-colors',
-        isHovered ? 'border-sp-green' : 'border-transparent'
-      )} />
+      <div 
+        className={cn(
+          'absolute inset-0 border-2 rounded-lg pointer-events-none transition-colors',
+          isHovered ? 'border-[#E31E24]' : 'border-transparent'
+        )}
+      />
     </motion.div>
   )
 }
