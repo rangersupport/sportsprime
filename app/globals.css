@@ -3,14 +3,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* SportsPrime Design System - Colombian Gold Standard */
+/* SportsPrime Design System - Black/Red Sports Palette */
 :root {
   /* Base Colors */
-  --sp-green: #0A3D2E;
-  --sp-gold: #C9A84C;
+  --sp-green: #0D0D0D;
+  --sp-gold: #E31E24;
+  --sp-red: #E31E24;
   --sp-cream: #FAF8F4;
   --sp-stone: #F0EDE6;
-  --sp-dark: #0D0F0E;
+  --sp-dark: #0D0D0D;
   --sp-ink: #1A1A18;
   --sp-muted: #B8B4AC;
   
@@ -68,6 +69,7 @@
   /* SportsPrime Colors */
   --color-sp-green: var(--sp-green);
   --color-sp-gold: var(--sp-gold);
+  --color-sp-red: var(--sp-red);
   --color-sp-cream: var(--sp-cream);
   --color-sp-stone: var(--sp-stone);
   --color-sp-dark: var(--sp-dark);

@@ -14,33 +14,22 @@ export function PoweredByBadge({
   className,
 }: PoweredByBadgeProps) {
   const sizeClasses = {
-    sm: 'text-[13px] font-medium',
-    md: 'text-xs',
-    lg: 'text-sm',
+    sm: 'text-[10px] md:text-[11px]',
+    md: 'text-[11px]',
+    lg: 'text-xs',
   }
-
-  const variantClasses = {
-    default: 'text-sp-gold',
-    light: 'text-sp-gold',
-    dark: 'text-sp-gold',
-    'navbar-transparent': 'text-sp-gold',
-    'navbar-solid': 'text-sp-gold',
-  }
-
-  // Text shadow for navbar transparent mode (over dark hero)
-  const textShadowStyle = variant === 'navbar-transparent' 
-    ? { textShadow: '0px 1px 8px rgba(0,0,0,0.8), 0px 0px 20px rgba(0,0,0,0.6)' }
-    : {}
 
   return (
     <span
       className={cn(
-        'font-serif italic tracking-tight',
+        'font-sans font-medium uppercase tracking-[0.06em] block',
         sizeClasses[size],
-        variantClasses[variant],
         className
       )}
-      style={textShadowStyle}
+      style={{
+        color: '#E31E24',
+        textShadow: '0 0 12px rgba(227,30,36,0.5)',
+      }}
     >
       Powered by Peralta Prime
     </span>

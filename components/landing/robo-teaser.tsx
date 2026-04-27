@@ -15,7 +15,7 @@ export function RoboTeaser() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="font-sans text-xs uppercase tracking-[0.2em] text-sp-gold">
+            <span className="font-sans text-xs uppercase tracking-[0.2em]" style={{ color: '#E31E24' }}>
               TECNOLOGÍA EXCLUSIVA EN COLOMBIA
             </span>
 
@@ -29,7 +29,12 @@ export function RoboTeaser() {
 
             <Link
               href="/robotica"
-              className="inline-flex items-center gap-2 mt-10 px-6 py-3 rounded-full bg-sp-gold text-sp-dark font-sans font-medium hover:bg-sp-gold/90 transition-all"
+              className="inline-flex items-center gap-2 mt-10 px-6 py-3 rounded-lg font-sans font-bold uppercase tracking-[0.04em] transition-all hover:scale-[1.02]"
+              style={{
+                background: '#E31E24',
+                color: '#FFFFFF',
+                boxShadow: '0 4px 20px rgba(227,30,36,0.35)',
+              }}
             >
               Ver módulos de automatización
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -78,13 +83,13 @@ export function RoboTeaser() {
                           <motion.div
                             animate={{ rotate: [0, -20, 0] }}
                             transition={{ duration: 1.5, repeat: Infinity }}
-                            className="w-2 h-8 bg-sp-gold rounded-t-lg"
+                            className="w-2 h-8 rounded-t-lg" style={{ background: '#E31E24' }}
                             style={{ transformOrigin: 'bottom center' }}
                           />
                           <motion.div
                             animate={{ rotate: [0, 20, 0] }}
                             transition={{ duration: 1.5, repeat: Infinity }}
-                            className="w-2 h-8 bg-sp-gold rounded-t-lg"
+                            className="w-2 h-8 rounded-t-lg" style={{ background: '#E31E24' }}
                             style={{ transformOrigin: 'bottom center' }}
                           />
                         </div>
@@ -93,7 +98,7 @@ export function RoboTeaser() {
 
                     {/* Specs Badge */}
                     <div className="absolute -right-20 top-0 bg-sp-dark/80 backdrop-blur px-3 py-2 rounded">
-                      <p className="font-mono text-[10px] text-sp-gold">AR4 6DOF</p>
+                      <p className="font-mono text-[10px]" style={{ color: '#E31E24' }}>AR4 6DOF</p>
                       <p className="font-mono text-[10px] text-white/50">600mm reach</p>
                     </div>
                   </div>
@@ -101,10 +106,10 @@ export function RoboTeaser() {
               </div>
 
               {/* Accent lines */}
-              <div className="absolute top-4 left-4 w-8 h-px bg-sp-gold" />
-              <div className="absolute top-4 left-4 w-px h-8 bg-sp-gold" />
-              <div className="absolute bottom-4 right-4 w-8 h-px bg-sp-gold" />
-              <div className="absolute bottom-4 right-4 w-px h-8 bg-sp-gold" />
+              <div className="absolute top-4 left-4 w-8 h-px" style={{ background: '#E31E24' }} />
+              <div className="absolute top-4 left-4 w-px h-8" style={{ background: '#E31E24' }} />
+              <div className="absolute bottom-4 right-4 w-8 h-px" style={{ background: '#E31E24' }} />
+              <div className="absolute bottom-4 right-4 w-px h-8" style={{ background: '#E31E24' }} />
             </div>
           </motion.div>
         </div>

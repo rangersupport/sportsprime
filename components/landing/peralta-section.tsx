@@ -46,7 +46,7 @@ export function PeraltaSection() {
             transition={{ duration: 0.6 }}
             className="order-1 lg:order-2"
           >
-            <span className="font-sans text-xs uppercase tracking-[0.2em] text-sp-gold">
+            <span className="font-sans text-xs uppercase tracking-[0.2em]" style={{ color: '#E31E24' }}>
               CO-FOUNDER · SPORTSPRIME
             </span>
 
@@ -62,7 +62,7 @@ export function PeraltaSection() {
             <div className="mt-10 flex flex-wrap gap-6">
               {trustBadges.map((badge) => (
                 <div key={badge.label} className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-sp-gold/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(227,30,36,0.1)' }}>
                     <BadgeIcon type={badge.icon} />
                   </div>
                   <span className="font-sans text-sm text-white/80">
@@ -74,7 +74,12 @@ export function PeraltaSection() {
 
             <Link
               href="/peralta"
-              className="inline-flex items-center gap-2 mt-10 px-6 py-3 rounded-full bg-sp-gold text-sp-dark font-sans font-medium hover:bg-sp-gold/90 transition-all"
+              className="inline-flex items-center gap-2 mt-10 px-6 py-3 rounded-lg font-sans font-bold uppercase tracking-[0.04em] transition-all hover:scale-[1.02]"
+              style={{
+                background: '#E31E24',
+                color: '#FFFFFF',
+                boxShadow: '0 4px 20px rgba(227,30,36,0.35)',
+              }}
             >
               Powered by Peralta Prime
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -94,7 +99,7 @@ function BadgeIcon({ type }: { type: string }) {
     height: 20,
     viewBox: '0 0 24 24',
     fill: 'none',
-    stroke: '#C9A84C',
+    stroke: '#E31E24',
     strokeWidth: 1.5,
     strokeLinecap: 'round' as const,
     strokeLinejoin: 'round' as const,
@@ -127,8 +132,8 @@ function BadgeIcon({ type }: { type: string }) {
           <path d="M12 7v4" />
           <line x1="8" y1="16" x2="8" y2="16" />
           <line x1="16" y1="16" x2="16" y2="16" />
-          <circle cx="8" cy="16" r="1" fill="#C9A84C" />
-          <circle cx="16" cy="16" r="1" fill="#C9A84C" />
+          <circle cx="8" cy="16" r="1" fill="#E31E24" />
+          <circle cx="16" cy="16" r="1" fill="#E31E24" />
         </svg>
       )
     default:

@@ -37,7 +37,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-sp-gold transition-colors"
+                    className="text-sm text-white/70 hover:text-[#E31E24] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -56,7 +56,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-sp-gold transition-colors"
+                    className="text-sm text-white/70 hover:text-[#E31E24] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -75,7 +75,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-sp-gold transition-colors"
+                    className="text-sm text-white/70 hover:text-[#E31E24] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -91,7 +91,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/50 hover:text-sp-gold transition-colors"
+                  className="text-white/50 hover:text-[#E31E24] transition-colors"
                   aria-label={social.name}
                 >
                   <SocialIcon name={social.name} />

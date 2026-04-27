@@ -50,7 +50,10 @@ function AnimatedNumber({
   }, [value, shouldAnimate])
 
   return (
-    <span className="font-serif text-display-section md:text-[80px] text-sp-ink tabular-nums">
+    <span 
+      className="font-mono text-[36px] md:text-[48px] tabular-nums"
+      style={{ color: '#E31E24' }}
+    >
       {displayValue.toLocaleString('es-CO')}{suffix}
     </span>
   )
@@ -61,7 +64,11 @@ export function StatsSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} className="bg-sp-cream py-20 md:py-24 lg:py-28">
+    <section 
+      ref={ref} 
+      className="py-20 md:py-24 lg:py-28"
+      style={{ background: '#0D0D0D' }}
+    >
       <div className="mx-auto max-w-[1440px] px-4 md:px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0">
           {stats.map((stat, index) => (
@@ -72,15 +79,16 @@ export function StatsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={cn(
                 'text-center',
-                index !== stats.length - 1 && 'md:border-r md:border-sp-muted/30'
+                index !== stats.length - 1 && 'md:border-r'
               )}
+              style={{ borderColor: '#333333' }}
             >
               <AnimatedNumber 
                 value={stat.value} 
                 suffix={stat.suffix}
                 shouldAnimate={isInView} 
               />
-              <p className="mt-2 font-sans text-sm text-sp-muted">
+              <p className="mt-2 font-sans text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
                 {stat.label}
               </p>
             </motion.div>

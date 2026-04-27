@@ -57,7 +57,7 @@ export function CoachTeaser() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="font-sans text-xs uppercase tracking-[0.2em] text-sp-gold">
+          <span className="font-sans text-xs uppercase tracking-[0.2em]" style={{ color: '#E31E24' }}>
             LO QUE EASYCANCHA NO TIENE
           </span>
           <h2 className="mt-4 font-serif text-display-section text-sp-ink">
@@ -98,19 +98,19 @@ export function CoachTeaser() {
               {/* Rating & Price */}
               <div className="flex items-center justify-between mt-4">
                 <div className="flex items-center gap-1">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-sp-gold">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ color: '#E31E24' }}>
                     <path d="M7 1L8.854 4.854L13 5.5L10 8.5L10.708 13L7 11L3.292 13L4 8.5L1 5.5L5.146 4.854L7 1Z" fill="currentColor"/>
                   </svg>
                   <span className="font-mono text-sm text-sp-ink">{coach.rating}</span>
                 </div>
-                <span className="font-mono text-sp-gold">
+                <span className="font-mono" style={{ color: '#E31E24' }}>
                   {formatCOP(coach.pricePerHour, false)}/hora
                 </span>
               </div>
 
               {/* Verified Badge */}
               {coach.isVerified && (
-                <div className="flex items-center gap-1.5 mt-4 text-sp-gold">
+                <div className="flex items-center gap-1.5 mt-4" style={{ color: '#E31E24' }}>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M7 1L8.5 4L12 4.5L9.5 7L10 10.5L7 9L4 10.5L4.5 7L2 4.5L5.5 4L7 1Z" fill="currentColor"/>
                   </svg>
