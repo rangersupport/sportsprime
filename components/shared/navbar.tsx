@@ -48,45 +48,18 @@ export function Navbar({ variant = 'transparent' }: NavbarProps) {
   return (
     <>
       <header
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300'
-        )}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
-          // Mobile: always frosted dark glass
-          // Desktop: transparent at top, solid after scroll
-          background: showSolidBg 
-            ? 'rgba(0, 0, 0, 0.82)' 
-            : 'rgba(0, 0, 0, 0.82)',
+          background: 'rgba(0, 0, 0, 0.9)',
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',
           borderBottom: '1px solid rgba(227, 30, 36, 0.4)',
         }}
       >
-        {/* Desktop transparent override */}
-        <style jsx>{`
-          @media (min-width: 769px) {
-            header {
-              background: ${showSolidBg ? 'rgba(0, 0, 0, 0.82)' : 'transparent'} !important;
-              backdrop-filter: ${showSolidBg ? 'blur(12px)' : 'none'} !important;
-              -webkit-backdrop-filter: ${showSolidBg ? 'blur(12px)' : 'none'} !important;
-              border-bottom: ${showSolidBg ? '1px solid rgba(227, 30, 36, 0.4)' : 'none'} !important;
-            }
-          }
-        `}</style>
         <nav className="mx-auto max-w-[1440px] px-4 md:px-6 lg:px-10">
           <div className="flex h-16 md:h-20 items-center justify-between">
             {/* Logo */}
-            <Link 
-              href="/" 
-              className="flex flex-col relative"
-              style={!showSolidBg ? {
-                background: 'linear-gradient(to right, rgba(0,0,0,0.55) 0%, transparent 100%)',
-                padding: '8px 16px 8px 0',
-                marginLeft: '-8px',
-                paddingLeft: '8px',
-                borderRadius: '0 8px 8px 0',
-              } : undefined}
-            >
+            <Link href="/" className="flex flex-col">
               <span
                 className="font-sans text-[16px] md:text-[18px] font-medium transition-colors text-white"
               >

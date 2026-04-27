@@ -15,6 +15,11 @@ import { useBookingStore } from '@/lib/stores/booking-store'
 import { supabase } from '@/lib/supabase'
 import type { Court, CourtStatus } from '@/lib/types'
 
+const FALLBACK_COURTS: Court[] = [
+  { id: 'norte', club_id: 'mach', name: 'Padbol Norte', sport_type: 'padbol', price_per_hour: 50000, status: 'available', is_active: true, created_at: '' },
+  { id: 'sur',   club_id: 'mach', name: 'Padbol Sur',   sport_type: 'padbol', price_per_hour: 50000, status: 'available', is_active: true, created_at: '' },
+]
+
 const DURATIONS = [60, 90, 120]
 const weekDays  = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']
 const months    = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
@@ -83,11 +88,10 @@ export default function MachReservarPage() {
         .eq('is_active', true)
         .order('name')
 
-      if (!error && data) {
-        // Strip the joined clubs column — shape matches Court type
-        setCourts(
-          data.map(({ clubs: _clubs, ...c }) => c as unknown as Court)
-        )
+      if (!error && data && data.length > 0) {
+        setCourts(data.map(({ clubs: _clubs, ...c }) => c as unknown as Court))
+      } else {
+        setCourts(FALLBACK_COURTS)
       }
       setLoadingCourts(false)
     }

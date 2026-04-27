@@ -14,7 +14,7 @@ export function PoweredByBadge({
   className,
 }: PoweredByBadgeProps) {
   const sizeClasses = {
-    sm: 'text-[10px] md:text-[11px]',
+    sm: 'text-[11px]',
     md: 'text-[11px]',
     lg: 'text-xs',
   }
@@ -22,12 +22,13 @@ export function PoweredByBadge({
   return (
     <span
       className={cn(
-        'font-sans font-medium uppercase tracking-[0.06em] block',
+        'font-sans uppercase tracking-[0.06em] block',
         sizeClasses[size],
         className
       )}
       style={{
         color: '#E31E24',
+        fontWeight: 700,
         textShadow: '0 0 12px rgba(227,30,36,0.5)',
       }}
     >
