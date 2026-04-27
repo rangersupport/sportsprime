@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: '%s | SportsPrime',
   },
   description:
-    'Reserva canchas de pádel, tenis, fútbol y más en segundos. La plataforma deportiva más completa de Colombia. Powered by Peralta.',
+    'Reserva canchas de pádel, tenis, fútbol y más en segundos. La plataforma deportiva más completa de Colombia. Peralta Prime.',
   keywords: [
     'pádel Colombia',
     'reservar cancha',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: 'SportsPrime',
     title: 'SportsPrime | La Plataforma de Deportes de Colombia',
     description:
-      'Reserva canchas de pádel, tenis, fútbol y más en segundos. Powered by Peralta.',
+      'Reserva canchas de pádel, tenis, fútbol y más en segundos. Peralta Prime.',
     images: [
       {
         url: '/og-image.jpg',

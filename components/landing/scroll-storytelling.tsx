@@ -281,7 +281,7 @@ function PlayIllustration() {
       >
         <div className="text-center">
           <span className="font-sans text-lg font-medium text-sp-ink">SportsPrime</span>
-          <p className="text-xs text-sp-gold font-serif italic">Powered by Peralta</p>
+          <p className="text-xs text-sp-gold font-serif italic">Peralta Prime</p>
         </div>
 
         <div className="mt-6 space-y-2 text-sm">
