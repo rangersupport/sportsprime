@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const trustBadges = [
@@ -22,19 +23,29 @@ export function PeraltaSection() {
             transition={{ duration: 0.6 }}
             className="relative order-2 lg:order-1"
           >
-            {/* Placeholder for Peralta editorial photo */}
-            <div className="relative aspect-[4/5] bg-sp-dark/30 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-tr from-sp-gold/10 to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 rounded-full bg-sp-stone/10 mx-auto flex items-center justify-center">
-                    <span className="font-serif text-4xl text-sp-cream/50">CP</span>
-                  </div>
-                  <p className="mt-4 font-mono text-xs text-sp-cream/30">
-                    Coach Peralta
-                  </p>
+            {/* Coach Peralta Photo */}
+            <div className="relative flex items-center justify-center">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                {/* Red glow behind image */}
+                <div 
+                  className="absolute inset-0 rounded-full blur-2xl opacity-30"
+                  style={{ background: '#E31E24' }}
+                />
+                {/* Image with border */}
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10">
+                  <Image
+                    src="/images/coach-peralta.png"
+                    alt="Coach Peralta - Co-founder de SportsPrime"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
+                    priority
+                  />
                 </div>
               </div>
+              <p className="absolute -bottom-8 left-1/2 -translate-x-1/2 font-mono text-xs text-sp-cream/50">
+                Coach Peralta
+              </p>
             </div>
           </motion.div>
 
