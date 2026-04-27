@@ -58,7 +58,17 @@ export function Navbar({ variant = 'transparent' }: NavbarProps) {
         <nav className="mx-auto max-w-[1440px] px-4 md:px-6 lg:px-10">
           <div className="flex h-16 md:h-20 items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex flex-col">
+            <Link 
+              href="/" 
+              className="flex flex-col relative"
+              style={!showSolidBg ? {
+                background: 'linear-gradient(to right, rgba(0,0,0,0.4) 0%, transparent 100%)',
+                padding: '8px 16px 8px 0',
+                marginLeft: '-8px',
+                paddingLeft: '8px',
+                borderRadius: '8px',
+              } : undefined}
+            >
               <span
                 className={cn(
                   'font-sans text-lg md:text-xl font-medium transition-colors',
@@ -69,10 +79,8 @@ export function Navbar({ variant = 'transparent' }: NavbarProps) {
               </span>
               <PoweredByBadge
                 size="sm"
-                className={cn(
-                  '-mt-1 font-serif',
-                  showSolidBg ? 'text-sp-gold' : 'text-sp-gold'
-                )}
+                variant={showSolidBg ? 'navbar-solid' : 'navbar-transparent'}
+                className="-mt-1"
               />
             </Link>
 
