@@ -76,7 +76,7 @@ export function PeraltaSection() {
               href="/peralta"
               className="inline-flex items-center gap-2 mt-10 px-6 py-3 rounded-full bg-sp-gold text-sp-dark font-sans font-medium hover:bg-sp-gold/90 transition-all"
             >
-              Peralta Prime
+              Powered by Peralta Prime
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
